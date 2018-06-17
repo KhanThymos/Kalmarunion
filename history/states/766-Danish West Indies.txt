@@ -1,0 +1,20 @@
+state=
+{
+	id=766
+	name="STATE_766"
+	manpower = 32240 
+	
+	state_category = enclave
+	
+	history=
+	{
+		owner = KAL
+		buildings = {
+			infrastructure = 3
+			4155 = {
+				naval_base = 1
+			}
+		}
+	}
+	provinces= { 4155 }
+}

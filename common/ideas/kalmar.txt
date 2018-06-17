@@ -1,0 +1,830 @@
+ideas = {
+
+	country = {
+
+		tired_monarchy = {
+
+			picture = KAL_tired_monarchy
+			
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = no 
+			}
+
+			removal_cost = -1
+			
+			rule = {
+				can_join_factions = no
+			}
+
+			modifier = {
+				political_power_cost = 0.5
+				training_time_army_factor = 0.15
+			}
+		}
+
+		tired_monarchy2 = {
+
+			picture = KAL_tired_monarchy
+			
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = no 
+			}
+
+			removal_cost = -1
+			
+			rule = {
+				can_join_factions = no
+			}
+
+			modifier = {
+				political_power_cost = 0.5
+			}
+		}
+
+		KAL_sami_conscription_crisis = {
+
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			picture = tfv_can_conscription_crisis
+			
+			modifier = {
+				conscription_factor = -0.03
+			}
+		}
+
+		KAL_jomsvikings = {
+
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			picture = escort_effort_focus
+			
+			modifier = {
+				amphibious_invasion = 0.10
+			}
+		}
+
+		KAL_royal_army = {
+
+			picture = generic_reserve_divisions
+			
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = no 
+			}
+
+			removal_cost = -1
+
+			modifier = {
+				conscription = 0.005
+			}
+		}
+
+		KAL_royal_army2 = {
+
+			picture = generic_reserve_divisions
+			
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = no 
+			}
+
+			removal_cost = -1
+
+			modifier = {
+				conscription = 0.020
+			}
+		}
+
+		KAL_women_suffrage = {
+
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = no
+			}
+
+			removal_cost = -1
+
+			picture = FRA_matignon_agreements
+			
+			modifier = {
+				political_power_gain = 0.1
+			}
+		}
+
+		KAL_strikes_outlawed = {
+
+				picture = FRA_matignon_agreements
+
+				allowed = {
+					always = no # Added via focus
+				}
+
+				allowed_civil_war = {
+					has_government = communism
+				}
+
+				modifier = {
+					stability_weekly = -0.01
+				}
+			}	
+
+		KAL_youth_conscripted = {
+
+				picture = generic_manpower_bonus
+			
+				allowed = {
+					always = no
+				}
+
+				allowed_civil_war = {
+					OR = {
+						has_government = communism
+						has_government = fascism
+					}
+				}
+			
+				removal_cost = -1
+	
+				modifier = {
+					conscription = 0.025
+				}
+			}
+
+		KAL_statspoliti_communist = {
+
+			picture = nkvd_2
+			
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = no 
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				enemy_partisan_effect = -0.25
+				foreign_subversive_activites = -0.35
+			}
+		}
+
+		KAL_statspoliti_fascist = {
+
+			picture = german_advisors
+			
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = no 
+			}
+
+			removal_cost = -1
+
+			modifier = {
+				enemy_partisan_effect = -0.30
+				foreign_subversive_activites = -0.3
+			}
+		}
+
+		KAL_civil_unrest = {
+
+			picture = generic_king_handled
+			
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = no 
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				political_power_cost = 0.2
+			}
+		}
+
+		KAL_home_guard = {
+
+			picture = generic_fortify_the_borders
+			
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = no 
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				conscription = 0.020
+			}
+		}
+
+		KAL_heavy_water_infrastructure = {
+
+			picture = ast_all_in
+			
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = no 
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				production_speed_infrastructure_factor = 0.1
+			}
+		}
+
+		KAL_mobilewarfare_idea = {
+
+			picture = generic_armor
+			
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = no 
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				army_speed_factor = 0.1
+			}
+		}
+
+		KAL_superiorfirepower_idea = {
+
+			picture = generic_artillery_regiments
+			
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = no 
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				army_artillery_attack_factor = 0.15
+				army_artillery_defence_factor = 0.1
+			}
+		}
+
+		KAL_grandbattleplan_idea = {
+
+			picture = ast_volunteer_defence_corps
+			
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = no 
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				army_org_factor = 0.08
+			}
+		}
+
+		KAL_massassault_idea = {
+
+			picture = generic_manpower_bonus
+			
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = no 
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				army_morale_factor = 0.08
+				conscription = 0.005
+			}
+		}
+
+		KAL_king_spirit = {
+
+			picture = king_edward
+			
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = no 
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				stability_factor = 0.15 
+			}
+		}
+	}
+
+
+	############################
+	#### POLITICAL ADVISORS ####
+	############################
+
+
+	political_advisor = {
+
+		KAL_captain_of_industry = {
+
+			picture = generic_political_advisor_europe_1
+
+			allowed = {
+				original_tag = KAL
+			}
+
+			ai_will_do = {
+				factor = 0
+			}
+			
+			traits = { captain_of_industry }
+		}
+
+		KAL_war_industrialist = {
+
+			picture = generic_political_advisor_europe_2
+			
+			allowed = {
+				original_tag = KAL
+			}
+			
+			traits = { war_industrialist }
+
+			ai_will_do = {
+				factor = 0
+			}
+		}
+
+		KAL_backroom_backstabber = {
+
+			picture = generic_political_advisor_europe_3
+			
+			allowed = {
+				original_tag = KAL
+			}
+			
+			traits = { backroom_backstabber }
+
+			ai_will_do = {
+				factor = 0
+			}
+		}
+
+		KAL_compassionate_gentleman = {
+
+			picture = generic_political_advisor_europe_4
+				
+			allowed = {
+				original_tag = KAL
+			}
+			
+			traits = { compassionate_gentleman }
+
+			ai_will_do = {
+				factor = 0
+			}
+		}
+
+		KAL_ideological_crusader = {
+
+			picture = generic_political_advisor_europe_5
+				
+			allowed = {
+				original_tag = KAL
+			}
+			
+			traits = { ideological_crusader }
+
+			ai_will_do = {
+				factor = 0
+			}
+		}
+
+		KAL_quartermaster_general = {
+
+			picture = generic_political_advisor_europe_6
+				
+			allowed = {
+				original_tag = KAL
+			}
+			
+			traits = { quartermaster_general }
+
+			ai_will_do = {
+				factor = 0
+			}
+		}
+
+		KAL_silent_workhorse = {
+
+			picture = generic_political_advisor_europe_2
+				
+			allowed = {
+				original_tag = KAL
+			}
+			
+			traits = { silent_workhorse }
+
+			ai_will_do = {
+				factor = 0
+			}
+		}
+
+		KAL_smooth_talking_charmer = {
+
+			picture = generic_political_advisor_europe_1
+				
+			allowed = {
+				original_tag = KAL
+			}
+			
+			traits = { smooth_talking_charmer }
+
+			ai_will_do = {
+				factor = 0
+			}
+		}
+
+		KAL_fortification_engineer = {
+
+			picture = generic_political_advisor_europe_4
+
+			allowed = {
+				original_tag = KAL
+			}
+
+			available = {
+				has_completed_focus = KAL_forbedre_festninger
+			}
+			
+			traits = { fortification_engineer }
+
+			ai_will_do = {
+				factor = 0.5
+			}
+		}
+	}
+
+	army_chief = {
+		
+
+		KAL_ebbe_gortz = {
+			
+			picture = generic_army_europe_1
+			
+			allowed = {
+				original_tag = KAL
+			}
+			
+
+			
+			traits = { army_chief_offensive_2 }
+			
+			ai_will_do = {
+				factor = 1
+			}
+		}
+
+		KAL_wilhelm_prior = {
+			
+			picture = generic_army_europe_2
+			
+			allowed = {
+				original_tag = KAL
+			}
+			
+
+			
+			traits = { army_chief_defensive_2 }
+			
+			ai_will_do = {
+				factor = 1
+			}
+		}
+	}
+
+	navy_chief = {
+		
+
+		KAL_carl_hammerich = {
+			
+			picture = generic_navy_europe_1
+			
+			allowed = {
+				original_tag = KAL
+			}
+			
+
+			
+			traits = { navy_chief_decisive_battle_2 }
+			
+			ai_will_do = {
+				factor = 1
+			}
+		}
+
+		KAL_aage_vedel = {
+			
+			picture = generic_navy_europe_2
+			
+			allowed = {
+				original_tag = KAL
+			}
+			
+
+			
+			traits = { navy_anti_submarine_2 }
+			
+			ai_will_do = {
+				factor = 1
+			}
+		}
+	}
+	air_chief = {
+		
+
+		KAL_paul_sommer = {
+			
+			picture = generic_air_europe_2
+			
+			allowed = {
+				original_tag = KAL
+			}
+			
+
+			
+			traits = { air_close_air_support_2 }
+			
+			ai_will_do = {
+				factor = 1
+			}
+		}
+	
+		KAL_kaj_birksted = {
+			
+			picture = generic_air_europe_3
+			
+			allowed = {
+				original_tag = KAL
+			}
+			
+
+			
+			traits = { air_air_combat_training_2 }
+			
+			ai_will_do = {
+				factor = 1
+			}
+		}
+	}
+
+
+	high_command = {
+
+		KAL_hans_a_rolsted = {
+			
+			picture = generic_army_europe_4
+
+			allowed = {
+				original_tag = KAL
+			}
+			
+			traits = { army_artillery_3 }
+			
+			ai_will_do = {
+				factor = 1
+			}
+		}
+		
+		KAL_christian_frederik_von_schalburg = {
+
+			picture = generic_army_europe_5
+			
+			allowed = {
+				original_tag = KAL
+			}
+			
+			traits = { army_logistics_2 }
+			
+			ai_will_do = {
+				factor = 1
+			}
+		}
+
+		KAL_hjalmar_rechnitzer = {
+
+			picture = generic_navy_europe_1
+			
+			allowed = {
+				original_tag = KAL
+			}
+			
+			traits = { navy_fleet_logistics_1 }
+			
+			ai_will_do = {
+				factor = 1
+			}
+		}
+
+		KAL_poul_sommer = {
+
+			picture = generic_air_europe_1
+			
+			allowed = {
+				original_tag = KAL
+			}
+			
+			traits = { air_air_combat_training_2 }
+			
+			ai_will_do = {
+				factor = 1
+			}
+		}
+	}
+
+	theorist = {
+		KAL_william_wain_prior = {
+			
+			picture = generic_army_europe_3
+
+			allowed = {
+				original_tag = KAL
+			}
+			
+			research_bonus = {
+				land_doctrine = 0.07
+			}
+			
+			traits = { military_theorist }
+		}
+
+	 	KAL_niels_bohr = {
+
+	 		picture = generic_army_europe_3
+
+			allowed = {
+				original_tag = KAL
+			}
+
+			available = {
+				has_completed_focus = KAL_heavy_water
+			}
+			
+			research_bonus = {
+				nuclear = 0.10
+			}
+			
+			traits = { nuclear_scientist }
+		}
+	
+		KAL_hans_lunding = {
+
+			picture = generic_navy_europe_1
+			
+			allowed = {
+				original_tag = KAL
+			}
+			
+			research_bonus = {
+				naval_doctrine = 0.07
+			}
+			
+			traits = { naval_theorist }
+		}
+
+	}
+
+	
+	aircraft_manufacturer = { 
+			
+		designer = yes
+		
+		htk_orlogsvaerftet = {
+			
+			picture = generic_air_manufacturer_3
+
+			
+			allowed = {
+				original_tag = KAL
+			}
+			
+			research_bonus = {
+				air_equipment = 0.10
+			}
+			
+			traits = { light_aircraft_manufacturer }
+			
+			# recon and fighter aircraft
+			
+			ai_will_do = {
+				factor = 1
+			}
+		}
+	}
+	
+	naval_manufacturer = { 
+		
+		designer = yes
+		
+		burmeister_wain = {
+			
+			picture = generic_naval_manufacturer_1
+
+			
+			allowed = {
+				original_tag = KAL
+			}
+			
+			research_bonus = {
+				naval_equipment = 0.10
+			}
+			
+			traits = { naval_manufacturer }
+		}
+	}
+
+	materiel_manufacturer = {
+			
+		designer = yes
+		
+		disa = {
+			
+			picture = generic_infantry_equipment_manufacturer_2
+
+			
+			allowed = {
+				original_tag = KAL
+			}
+			
+			research_bonus = {
+				infantry_weapons = 0.10
+			}
+			
+			# rifles
+			
+			traits = { infantry_equipment_manufacturer }
+
+		}
+	}
+}

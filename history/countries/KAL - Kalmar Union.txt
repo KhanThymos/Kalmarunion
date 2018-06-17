@@ -1,0 +1,210 @@
+﻿capital = 37
+
+oob = "KAL_1936"
+
+set_research_slots = 3
+
+add_ideas = {
+	# limited_conscription
+	KAL_sami_conscription_crisis
+	tired_monarchy
+}
+
+set_technology = {
+	infantry_weapons = 1
+	infantry_weapons1 = 1
+	gw_artillery = 1
+	tech_recon = 1
+	tech_support = 1		
+	tech_engineers = 1
+	tech_mountaineers = 1
+	gwtank = 1
+	basic_light_tank = 1
+	CAS1 = 1
+	early_fighter = 1
+	fighter1 = 1
+	naval_bomber1 = 1
+	cv_naval_bomber1 = 1
+	cv_early_fighter = 1
+	early_bomber = 1
+	early_submarine = 1
+	early_destroyer = 1
+	basic_destroyer = 1
+	early_light_cruiser = 1
+	early_heavy_cruiser = 1
+	transport = 1
+	superior_firepower = 1
+	fleet_in_being = 1
+}
+
+set_politics = {
+
+	parties = {
+		democratic = { 
+			popularity = 25
+		}
+
+		fascism = {
+			popularity = 5
+		}
+		
+		communism = {
+			popularity = 10
+		}
+		
+		neutrality = { 
+			popularity = 0
+		}
+
+		monarchist = {
+			popularity = 60
+		}
+	}
+
+	ruling_party = monarchist
+	last_election = "1933.3.5"
+	election_frequency = 48
+	elections_allowed = no
+}
+
+
+set_convoys = 200
+set_stability = 0.40
+set_war_support = 0.10
+
+
+create_country_leader = {
+	name = "Thorvald Stauning"
+	desc = "POLITICS_THORVALD_STAUNING_DESC"
+	picture = "Portrait_Kalmar_Thorvald_Stauning.dds"
+	expire = "1965.1.1"
+	ideology = socialism
+	traits = {
+		#
+	}
+}
+
+create_country_leader = {
+	name = "Vidkun Quisling"
+	desc = "POLITICS_FRITS_CLAUSEN_DESC"
+	picture = "Portrait_Kalmar_Vidkun_Quisling.dds"
+	expire = "1965.1.1"
+	ideology = nazism
+	traits = {
+		#
+	}
+}
+
+create_country_leader = {
+	name = "Sven Linderot"
+	desc = "POLITICS_AKSEL_LARSEN_DESC"
+	picture = "Portrait_Kalmar_Sven_Linderot.tga"
+	expire = "1965.1.1"
+	ideology = leninism
+	traits = {
+		#
+	}
+}
+
+create_country_leader = {
+	name = "Peder Olsen"
+	desc = "POLITICS_PETER_ROCHEGUNE_MUNCH_DESC"
+	picture = "gfx/leaders/Europe/Portrait_Europe_Generic_land_1.dds"
+	expire = "1965.1.1"
+	ideology = centrism
+	traits = {
+		#
+	}
+}
+
+create_country_leader = {
+	name = "Christian X"
+	desc = "POLITICS_PETER_ROCHEGUNE_MUNCH_DESC"
+	picture = "Portrait_Kalmar_King_Christian.tga"
+	expire = "1965.1.1"
+	ideology = absolutemonarchy
+	traits = {
+		#
+	}
+}
+
+##### GENERALS ####
+
+create_field_marshal = {
+	name = "Carl Gustav Fleischer"
+	picture = "Portrait_Kalmar_Carl_Gustav_Fleischer.tga"
+	traits = { infantry_officer brilliant_strategist offensive_doctrine winter_specialist }
+	skill = 3
+	attack_skill = 3
+	defense_skill = 2
+	planning_skill = 3
+	logistics_skill = 3
+}
+
+#create_corps_commander = {
+#	name = "Carl Gustav Fleischer"
+#	picture = "Portrait_Kalmar_Carl_Gustav_Fleischer.tga"
+#	traits = { trickster winter_specialist }
+#	skill = 4
+#	attack_skill = 2
+#	defense_skill = 3
+#	planning_skill = 2
+#	logistics_skill = 2
+#}
+
+create_corps_commander = {
+	name = "Otto Ruge"
+	picture = "Portrait_Kalmar_Otto_Ruge.tga"
+	traits = { infantry_officer commando }
+	skill = 3
+	attack_skill = 3
+	defense_skill = 4
+	planning_skill = 2
+	logistics_skill = 2
+}
+
+create_corps_commander = {
+	name = "Erik af Edholm"
+	picture = "Portrait_Kalmar_Erik_af_Edholm.tga"
+	traits = { hill_fighter }
+	skill = 3
+	attack_skill = 2
+	defense_skill = 1
+	planning_skill = 3
+	logistics_skill = 2
+
+}
+
+create_corps_commander = {
+	name = "Wilhelm Wain Prior"
+	picture = "Portrait_Kalmar_Wilhelm_Wain_Prior.tga"
+	traits = { trickster }
+	skill = 3
+	attack_skill = 2
+	defense_skill = 3
+	planning_skill = 3
+	logistics_skill = 2
+}
+
+##### NAVY ####
+
+create_navy_leader = {
+	name = "Elias Corneliussen"
+	portrait_path = "gfx/leaders/Europe/Portrait_Europe_Generic_navy_2.dds"
+	traits = { spotter }
+	skill = 3
+}
+
+create_navy_leader = {
+	name = "Claes Lindström"
+	portrait_path = "gfx/leaders/Europe/Portrait_Europe_Generic_navy_2.dds"
+	traits = { blockade_runner }
+	skill = 4
+}
+
+create_navy_leader = {
+	name = "Hjalmar Rechnitzer"
+	portrait_path = "gfx/leaders/Europe/Portrait_Europe_Generic_navy_1.dds"
+	traits = { superior_tactician old_guard_navy }
+	skill = 4
+}

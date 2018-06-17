@@ -1,0 +1,228 @@
+﻿add_namespace = kalmar
+
+# German Forts
+country_event = {
+	id = kalmar.1
+	title = kalmar.1.t
+	desc = kalmar.1.d
+	picture = GFX_report_event_bunker_01
+
+	is_triggered_only = yes
+	
+	option = {
+		name = kalmar.1.a
+		58 = {
+			add_building_construction = {
+				type = bunker
+				province = 9347
+				level = 3
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 9320
+				level = 3
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 11331
+				level = 3
+				instant_build = yes
+			}
+		}
+	}
+}
+
+# Soviet Border
+country_event = {
+	id = kalmar.2
+	title = kalmar.2.t
+	desc = kalmar.2.d
+	picture = GFX_report_event_bunker_01
+
+	is_triggered_only = yes
+	
+	option = {
+		name = kalmar.1.a
+		111 = {
+			add_building_construction = {
+				type = bunker
+				province = 6186
+				level = 3
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 6082
+				level = 3
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 52
+				level = 3
+				instant_build = yes
+			}
+		}
+		150 = {
+			add_building_construction = {
+				type = bunker
+				province = 139
+				level = 2
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 3030
+				level = 2
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 9181
+				level = 2
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 6210
+				level = 2
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 3185
+				level = 2
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 7
+				level = 2
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 6134
+				level = 2
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 3073
+				level = 2
+				instant_build = yes
+			}
+		}
+		148 = {
+			add_building_construction = {
+				type = bunker
+				province = 6045
+				level = 2
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 3156
+				level = 2
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 11030
+				level = 1
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 6128
+				level = 1
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 3158
+				level = 1
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 3097
+				level = 1
+				instant_build = yes
+			}
+		}
+		144 = {
+			add_building_construction = {
+				type = bunker
+				province = 9116
+				level = 1
+				instant_build = yes
+			}
+		}
+	}
+}
+
+# Federative Republic
+country_event = {
+	id = kalmar.3
+	title = kalmar.3.t
+	desc = kalmar.3.d
+	picture = GFX_report_event_generic_conference
+
+	is_triggered_only = yes
+	
+	option = {
+		name = kalmar.3.a
+			hidden_effect = {
+				set_cosmetic_tag = KAL_federative
+				create_country_leader = {
+					name = "Nordic Federal Council"
+					desc = "POLITICS_OTTO_VON_HABSBURG_DESC"
+					picture = Portrait_Kalmar_Federal_Council.tga
+					expire = "1965.1.1"
+					ideology = conservatism
+					traits = {
+						#
+					}
+				}
+			} ##############
+			remove_ideas = tired_monarchy
+			add_popularity = {
+				ideology = democratic
+				popularity = 0.20
+			}		
+		set_politics = {
+			ruling_party = democratic
+			elections_allowed = yes
+			}
+		set_party_name = { ideology = democratic long_name = KAL_federative_party_long name = KAL_federative_party }
+		add_stability = 0.05
+		}
+	}
+
+# Crowned Republic
+country_event = {
+	id = kalmar.4
+	title = kalmar.4.t
+	desc = kalmar.4.d
+	picture = GFX_report_event_generic_parliament
+
+	is_triggered_only = yes
+	
+	option = {
+		name = kalmar.4.a
+		remove_ideas = tired_monarchy
+			add_popularity = {
+			ideology = democratic
+			popularity = 0.20
+		}		
+		set_politics = {
+			ruling_party = democratic
+			elections_allowed = yes
+			}
+		add_stability = -0.05
+		add_ideas = KAL_king_spirit
+		}
+	}

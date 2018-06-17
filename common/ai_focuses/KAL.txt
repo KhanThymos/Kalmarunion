@@ -1,0 +1,30 @@
+
+ai_historical_focus_list_KAL = {
+	ai_national_focuses = {
+		# grab as fast as you can if available
+
+		KAL_konig_fedreland
+		renew_the_monarchy
+
+		reunite_the_people
+		stay_royal
+		choose_christian
+		KAL_state_church
+		KAL_establish_a_royal_army
+		prepare_industrialization
+		trinity_improvement_effort
+		civilian_factory
+		KAL_nordic_armed_forces
+		doctrine
+		KAL_forbedre_festninger
+		german_border
+		military_factory2
+		civilian_factory2
+		industrialize_the_north
+		cross_midland_railroad
+		civilian_factory3
+		discover_north_sea_oil
+		expand_oil_industry
+
+	}
+}

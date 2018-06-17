@@ -1,0 +1,609 @@
+﻿division_template = {
+	name = "Infanteri Division"
+
+regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 0 y = 2 }
+        infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+		infantry = { x = 1 y = 2 }
+        infantry = { x = 2 y = 0 }
+		infantry = { x = 2 y = 1 }
+		infantry = { x = 2 y = 2 }
+	}
+
+	support = {
+		engineer = { x = 0 y = 0 }
+		artillery = { x = 0 y = 1 }
+	}
+}
+
+division_template = {
+	name = "By Fortificering Division"
+
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+		cavalry = { x = 2 y = 0 }
+		cavalry = { x = 2 y = 1 }
+		
+	}
+	support = {
+		engineer = { x = 0 y = 0 }
+		recon = { x = 0 y = 1 }
+	}
+}
+
+division_template = {
+	name = "Kavaleri Brigade"
+
+	regiments = {
+		cavalry = { x = 0 y = 0 }
+		cavalry = { x = 0 y = 1 }
+		cavalry = { x = 0 y = 2 }
+	}
+	support = {
+		recon = { x = 0 y = 0 }
+	}
+}
+
+division_template = {
+	name = "Kongens Vagt"
+
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+	}
+	priority = 2
+}
+
+division_template = {
+	name = "Koloni Garrison"
+
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }	
+	}
+	priority = 0
+}
+
+division_template = {
+	name = "Panservognregiment"  	
+
+	regiments = {
+		light_armor = { x = 0 y = 0 }
+		light_armor = { x = 0 y = 1 }
+		light_armor = { x = 0 y = 2 }
+	}
+	support = {
+		recon = { x = 0 y = 0 }
+	}
+}
+
+#######################
+# Beskyttelsesdivsion #
+#######################
+
+units = {
+division= {	
+		name = "Aarhus By Fortificering Division"
+		location = 6364
+		division_template = "By Fortificering Division"
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.90
+	}
+division= {	
+		name = "Odense By Fortificering Division"
+		location = 3325
+		division_template = "By Fortificering Division"
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.90
+	}
+division= {	
+		name = "Copenhagen By Fortificering Division"
+		location = 6287
+		division_template = "By Fortificering Division"
+		start_experience_factor = 0.1
+	}
+division= {	
+		name = "Malmø By Fortificering Division"
+		location = 9279
+		division_template = "By Fortificering Division"
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.80
+	}
+division= {	
+		name = "Karlskrona By Fortificering Division"
+		location = 11215
+		division_template = "By Fortificering Division"
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.80
+	}
+division= {	
+		name = "Göteborg By Fortificering Division"
+		location = 383
+		division_template = "By Fortificering Division"
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.80
+	}
+division= {	
+		name = "Kalmar By Fortificering Division"
+		location = 299
+		division_template = "By Fortificering Division"
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.80
+	}
+division= {	
+		name = "Norrköping By Fortificering Division"
+		location = 11380
+		division_template = "By Fortificering Division"
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.80
+	}
+division= {	
+		name = "Stockholm By Fortificering Division"
+		location = 6050
+		division_template = "By Fortificering Division"
+		start_experience_factor = 0.1
+	}
+division= {	
+		name = "Christiania By Fortificering Division"
+		location = 6115
+		division_template = "By Fortificering Division"
+		start_experience_factor = 0.1
+	}
+division= {	
+		name = "Bergen By Fortificering Division"
+		location = 122
+		division_template = "By Fortificering Division"
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.80
+	}
+division= {	
+		name = "Trondheim By Fortificering Division"
+		location = 3022
+		division_template = "By Fortificering Division"
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.80
+	}
+division= {	
+		name = "Kristiansand By Fortificering Division"
+		location = 9296
+		division_template = "By Fortificering Division"
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.80
+	}
+division= {	
+		name = "Stavanger By Fortificering Division"
+		location = 53
+		division_template = "By Fortificering Division"
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.80
+	}
+division= {	
+		name = "Narvik By Fortificering Division"
+		location = 192
+		division_template = "By Fortificering Division"
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.70
+	}
+division= {	
+		name = "Helsinki By Fortificering Division"
+		location = 11105
+		division_template = "By Fortificering Division"
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.70
+	}
+division= {	
+		name = "Islands Patruljen"
+		location = 12674
+		division_template = "By Fortificering Division"
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.25
+	}
+}
+
+#####################
+# Colonial Garrison #
+#####################
+
+units = {
+division= {	
+		name = "Danske Vestindien Garrison"
+		location = 4155
+		division_template = "Koloni Garrison"
+		force_equipment_variants = { infantry_equipment_0 = { owner = "KAL" } }
+		start_equipment_factor = 0.15
+	}
+}
+
+######################
+# Panservognregiment #
+######################
+
+units = {
+division= {	
+		name = "1. Panservognregiment"
+		location = 6389
+		division_template = "Panservognregiment"
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.30
+	}
+}
+
+################
+# KONGENS VAGT #
+################
+
+units = {
+division= {	
+		name = "Kong Haakon VIIs Garde"
+		location = 6115
+		division_template = "Kongens Vagt"
+		start_experience_factor = 0.75
+	}
+division= {	
+		name = "Kong Christian Xs Vagt"
+		location = 6287
+		division_template = "Kongens Vagt"
+		start_experience_factor = 0.75
+	}
+division= {	
+		name = "Kung Gustav Vs Vakt"
+		location = 6050
+		division_template = "Kongens Vagt"
+		start_experience_factor = 0.75
+	}
+}
+
+######################
+# INFANTERI DIVISION #
+######################
+
+units = {
+division= {	
+		name = "1. Infanteri Division"
+		location = 9347
+		division_template = "Infanteri Division"
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.60
+	}
+division= {	
+		name = "2. Infanteri Division"
+		location = 9320
+		division_template = "Infanteri Division"
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.60
+	}
+division= {	
+		name = "3. Infanteri Division"
+		location = 11331
+		division_template = "Infanteri Division"
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.60
+	}
+
+
+
+division= {	
+		name = "4. Infanteri Division"
+		location = 6082
+		division_template = "Infanteri Division"
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.55
+	}
+division= {	
+		name = "5. Infanteri Division"
+		location = 3030
+		division_template = "Infanteri Division"
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.55
+	}
+division= {	
+		name = "6. Infanteri Division"
+		location = 7
+		division_template = "Infanteri Division"
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.55
+	}
+division= {	
+		name = "7. Infanteri Division"
+		location = 6045
+		division_template = "Infanteri Division"
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.55
+	}
+division= {	
+		name = "8. Infanteri Division"
+		location = 6128
+		division_template = "Infanteri Division"
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.55
+	}
+division= {	
+		name = "9. Infanteri Division"
+		location = 9116
+		division_template = "Infanteri Division"
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.55
+	}
+}
+
+####################
+# KAVALERI BRIGADE #
+####################
+
+units = {
+division= {	
+		name = "1. Kavaleri Brigade - Gotland"
+		location = 408
+		division_template = "Kavaleri Brigade"
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.60
+	}
+division= {	
+		name = "2. Kavaleri Brigade - Åland"
+		location = 9228
+		division_template = "Kavaleri Brigade"
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.60
+	}
+
+###############
+# NAVAL UNITS #
+###############
+
+##### NAVAL UNITS DENMARK #####
+	navy = {				
+		name = "Den Danske Flåde"			
+		base = 6287
+		location = 6287  # Copenhagen			
+		ship = { name = "HDMS Niels Juel" definition = heavy_cruiser equipment = { heavy_cruiser_1 = { amount = 1 owner = KAL } } }
+		ship = { name = "HDMS Peder Skram" definition = heavy_cruiser equipment = { heavy_cruiser_1 = { amount = 1 owner = KAL } } }
+		ship = { name = "HDMS Rota" definition = submarine equipment = { submarine_1 = { amount = 1 owner = KAL } } }			
+		ship = { name = "HDMS Bellona" definition = submarine equipment = { submarine_1 = { amount = 1 owner = KAL } } }		
+		ship = { name = "HDMS Flora" definition = submarine equipment = { submarine_1 = { amount = 1 owner = KAL } } }
+		ship = { name = "HDMS Daphne" definition = submarine equipment = { submarine_1 = { amount = 1 owner = KAL } } }
+		ship = { name = "HDMS Dryaden" definition = submarine equipment = { submarine_1 = { amount = 1 owner = KAL } } }
+	}				
+
+##### NAVAL UNITS NORWAY #####
+	navy = {					
+		name = "1. Sjøforsvarsdistrikt"				
+		base = 9296
+		location =  9296 # Kristiansand
+		ship = { name = "HNoMS Harald Haarfagre" definition = heavy_cruiser equipment = { heavy_cruiser_1 = { amount = 1 owner = KAL } } }				
+		ship = { name = "HNoMS Tordenskjold" definition = heavy_cruiser equipment = { heavy_cruiser_1 = { amount = 1 owner = KAL } } }				
+		# 1st Submarine Detachment
+		ship = { name = "HNoMS A2" definition = submarine equipment = { submarine_1 = { amount = 1 owner = KAL } } }
+		ship = { name = "HNoMS A3" definition = submarine equipment = { submarine_1 = { amount = 1 owner = KAL } } }
+		ship = { name = "HNoMS A4" definition = submarine equipment = { submarine_1 = { amount = 1 owner = KAL } } }
+		# 2nd Submarine Detachment
+		ship = { name = "HNoMS B2" definition = submarine equipment = { submarine_1 = { amount = 1 owner = KAL } } }
+		ship = { name = "HNoMS B4" definition = submarine equipment = { submarine_1 = { amount = 1 owner = KAL } } }
+		ship = { name = "HNoMS B5" definition = submarine equipment = { submarine_1 = { amount = 1 owner = KAL } } }
+	}					
+	navy = {					
+		name = "2. Sjøforsvarsdistrikt"				
+		base = 122
+		location =  122 # Bergen
+		ship = { name = "HNoMS Draug" definition = destroyer equipment = { destroyer_1 = { amount = 1 owner = KAL } } }
+		ship = { name = "HNoMS Troll" definition = destroyer equipment = { destroyer_1 = { amount = 1 owner = KAL } } }
+		ship = { name = "HNoMS Garm" definition = destroyer equipment = { destroyer_1 = { amount = 1 owner = KAL } } }
+	}					
+	navy = {					
+		name = "3. Sjøforsvarsdistrikt"				
+		base = 11050
+		location =  11050 # Tromso
+		ship = { name = "HNoMS Eidsvold" definition = heavy_cruiser equipment = { heavy_cruiser_1 = { amount = 1 owner = KAL } } }				
+		ship = { name = "HNoMS Norge" definition = heavy_cruiser equipment = { heavy_cruiser_1 = { amount = 1 owner = KAL } } }				
+		# Submarine Detachment
+		ship = { name = "HNoMS B1" definition = submarine equipment = { submarine_1 = { amount = 1 owner = KAL } } }
+		ship = { name = "HNoMS B3" definition = submarine equipment = { submarine_1 = { amount = 1 owner = KAL } } }
+	}					
+
+##### NAVAL UNITS SWEDEN #####
+	navy = { 
+		name = "Kustflottan"
+		base = 6050 
+		location = 6050 # Stockholm
+		ship = { name = "HMS Dristigheten" definition = heavy_cruiser equipment = { heavy_cruiser_1 = { amount = 1 owner = KAL } } }				
+		ship = { name = "HMS Örnen" definition = destroyer equipment = { destroyer_1 = { amount = 1 owner = KAL } } }		
+		ship = { name = "HMS Jacob Bagge" definition = destroyer equipment = { destroyer_1 = { amount = 1 owner = KAL } } }		
+	}
+	navy = { 
+		name = "1a Eskadern"
+		base = 11215
+		location = 11215 # Karlskrona
+		ship = { name = "HMS Sverige" definition = heavy_cruiser equipment = { heavy_cruiser_1 = { amount = 1 owner = KAL } } }				
+		ship = { name = "HMS Drottning Victoria" definition = heavy_cruiser equipment = { heavy_cruiser_1 = { amount = 1 owner = KAL } } }				
+		ship = { name = "HMS Gustaf V" definition = heavy_cruiser equipment = { heavy_cruiser_1 = { amount = 1 owner = KAL } } }				
+		ship = { name = "HMS Gotland" definition = light_cruiser equipment = { light_cruiser_1 = { amount = 1 owner = KAL } } }				
+		# 1. Jagarflottiljen				
+		ship = { name = "HMS Klas Horn" definition = destroyer equipment = { destroyer_1 = { amount = 1 owner = KAL } } }		
+		ship = { name = "HMS Klas Uggla" definition = destroyer equipment = { destroyer_1 = { amount = 1 owner = KAL } } }		
+		ship = { name = "HMS Ehrensköld" definition = destroyer equipment = { destroyer_1 = { amount = 1 owner = KAL } } }		
+		ship = { name = "HMS KALdenskjöld" definition = destroyer equipment = { destroyer_1 = { amount = 1 owner = KAL } } }		
+	}
+	navy = { 
+		name = "Ålandshavseskader"
+		base = 408 
+		location = 408 # Gotland
+		ship = { name = "HMS Äran" definition = heavy_cruiser equipment = { heavy_cruiser_1 = { amount = 1 owner = KAL } } }				
+		ship = { name = "HMS Tapperheten" definition = heavy_cruiser equipment = { heavy_cruiser_1 = { amount = 1 owner = KAL } } }				
+	}
+	navy = { 
+		name = "Karlskrona Avdelningen"
+		base = 11215
+		location = 11215 # Karlskrona
+		ship = { name = "HMS Wasa" definition = heavy_cruiser equipment = { heavy_cruiser_1 = { amount = 1 owner = KAL } } }				
+		ship = { name = "HMS Manligheten" definition = heavy_cruiser equipment = { heavy_cruiser_1 = { amount = 1 owner = KAL } } }
+		# 1. Ubatsflottiljen				
+		ship = { name = "HMS Draken" definition = submarine equipment = { submarine_1 = { amount = 1 owner = KAL } } }
+		ship = { name = "HMS Gripen" definition = submarine equipment = { submarine_1 = { amount = 1 owner = KAL } } }
+		ship = { name = "HMS Ulven" definition = submarine equipment = { submarine_1 = { amount = 1 owner = KAL } } }
+	}
+	navy = { 
+		name = "Göteborgs Eskadern"
+		base = 383
+		location = 383 # Göteborg
+		ship = { name = "HMS Oscar II" definition = heavy_cruiser equipment = { heavy_cruiser_1 = { amount = 1 owner = KAL } } }				
+		ship = { name = "HMS Fylgia" definition = light_cruiser equipment = { light_cruiser_1 = { amount = 1 owner = KAL } } }				
+		# 2. Ubatsflottiljen				
+		ship = { name = "HMS Hajen" definition = submarine equipment = { submarine_1 = { amount = 1 owner = KAL } } }
+		ship = { name = "HMS Sälen" definition = submarine equipment = { submarine_1 = { amount = 1 owner = KAL } } }
+		ship = { name = "HMS Valrossen" definition = submarine equipment = { submarine_1 = { amount = 1 owner = KAL } } }
+		# 3. Ubatsflottiljen				
+		ship = { name = "HMS Bävern" definition = submarine equipment = { submarine_1 = { amount = 1 owner = KAL } } }
+		ship = { name = "HMS Illern" definition = submarine equipment = { submarine_1 = { amount = 1 owner = KAL } } }
+		ship = { name = "HMS Uttern" definition = submarine equipment = { submarine_1 = { amount = 1 owner = KAL } } }
+		ship = { name = "HMS Valen" definition = submarine equipment = { submarine_1 = { amount = 1 owner = KAL } } }
+	}
+
+	##### NAVAL UNITS FINLAND #####
+	navy = {					
+		name = "Rannikkolaivue"				
+		base = 11105 
+		location =  11105 # Helsinki
+		ship = { name = "Ilmarinen" definition = heavy_cruiser equipment = { heavy_cruiser_1 = { amount = 1 owner = KAL } } }				
+		ship = { name = "Väinämöinen" definition = heavy_cruiser equipment = { heavy_cruiser_1 = { amount = 1 owner = KAL } } }				
+	}					
+	navy = {					
+		name = "Sukellusvenelaivue"				
+		base = 11105 
+		location =  11105 # Helsinki
+		ship = { name = "Vetehinen" definition = submarine equipment = { submarine_1 = { amount = 1 owner = KAL } } }
+		ship = { name = "Vesihiisi" definition = submarine equipment = { submarine_1 = { amount = 1 owner = KAL } } }
+		ship = { name = "Iku-Turso" definition = submarine equipment = { submarine_1 = { amount = 1 owner = KAL } } }
+		ship = { name = "Vesikko" definition = submarine equipment = { submarine_1 = { amount = 1 owner = KAL } } }
+	}					
+
+}
+
+### Flygvapnet ###
+air_wings = {
+	141 = {
+		# 1. Bombflyggruppen -- Hawker Harts
+		CAS_equipment_1 = {
+			owner = "KAL" 
+			amount = 36
+		}
+	}
+	141 = {
+		# 5. Jaktflyggruppen -- Bristol Bulldogs, Svenska Jaktfalks, Centrala Malmslatts
+		fighter_equipment_0 =  {
+			owner = "KAL" 
+			amount = 30
+		}
+	}
+	99 = {
+		# 2. Torpedflyggruppen -- Heinkel HD 16s
+		cv_nav_bomber_equipment_1 =  {
+			owner = "KAL" 
+			amount = 14
+		}
+	}
+### Flyvevabnet -- Copenhagen
+	37 = {
+		# 1. Jagerafdeling
+		# Consisted of 18 Gloster Gauntlets, 4 Bristol Bulldogs
+		fighter_equipment_0 =  {
+			owner = "KAL" 
+			amount = 22
+		}
+	}
+	# Søværnets Flyvetjeneste -- Jylland
+	99 = {
+		# Consisted of 12 Hawker Nimrods
+		fighter_equipment_0 = {
+			owner = "KAL" 
+			amount = 16
+		}
+	}
+	### Luftforsvaret -- Oslo
+	110 = {
+		# Had a handful of Fokker C-Vd bombers in both bomber and recon role, 
+		#   plus Tiger Moth trainers used in various roles. 
+		#   This represents what was active in a combat role
+		tac_bomber_equipment_0 =  {
+			owner = "KAL" 
+			amount = 18
+		}
+	}
+	### Luftforsvaret -- Narvik
+	144 = {
+		fighter_equipment_1 =  {
+			owner = "KAL" 
+			amount = 8
+		}
+	}
+### Luftforsvaret -- Vestlandet
+	142 = {
+		fighter_equipment_0 =  {
+			owner = "KAL" 
+			amount = 46
+		}
+		cv_nav_bomber_equipment_1 =  {
+			owner = "KAL" 
+			amount = 23
+		}
+	}
+}
+
+#######################
+# STARTING PRODUCTION #
+#######################
+
+instant_effect = {
+
+	add_equipment_production = {
+		equipment = {
+			type = infantry_equipment_1
+			creator = "KAL"
+		}
+		requested_factories = 3
+		progress = 0.77
+		efficiency = 70
+	}
+	add_equipment_production = {
+		equipment = {
+			type = support_equipment_1
+			creator = "KAL"
+		}
+		requested_factories = 1
+		progress = 0.60
+		efficiency = 40
+	}
+	add_equipment_production = {
+		equipment = {
+			type = artillery_equipment_1
+			creator = "KAL" 
+		}
+		requested_factories = 2
+		progress = 0.30
+		efficiency = 25
+	}
+	add_equipment_production = {
+		equipment = {
+			type = light_tank_equipment_1
+			creator = "KAL" 
+		}
+		requested_factories = 2
+		progress = 0.4
+		efficiency = 10
+	}
+	add_equipment_production = {
+		equipment = {
+			type = fighter_equipment_1
+			creator = "KAL" 
+		}
+		requested_factories = 1
+		progress = 0.70
+		efficiency = 15
+	}
+}

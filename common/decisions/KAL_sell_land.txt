@@ -1,0 +1,36 @@
+KAL_economic_actions_category = {
+
+	sell_danish_west_indies = {
+
+		icon = ger_mefo_bills
+
+		available = {
+			controls_state = 766
+			USA = {
+				NOT = { has_war_with = ROOT }
+				exists = yes
+				has_capitulated = no
+				num_of_civilian_factories_available_for_projects > 5
+				}
+			}
+
+		fire_only_once = yes
+		days_remove = 365
+
+		highlight_states = { state = 766 }
+
+		remove_effect = {
+			add_offsite_building = { type = industrial_complex level = -5 }
+		}
+
+		complete_effect = {
+			KAL = {
+				add_offsite_building = { type = industrial_complex level = 5 }
+			}
+    		USA = {
+				if = { limit = { 766 = { is_controlled_by = KAL } } transfer_state = 766 }
+				}
+		}
+	}
+
+}

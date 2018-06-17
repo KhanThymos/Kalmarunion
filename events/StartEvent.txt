@@ -1,0 +1,15 @@
+﻿add_namespace = startevent
+
+country_event = {
+	id = startevent.1
+	title = startevent.1.t
+	desc = startevent.1.d
+	picture = GFX_report_event_worker_protests
+
+	is_triggered_only = yes
+
+	option = {
+		name = startevent.1.a
+	}
+
+}

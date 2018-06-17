@@ -1,0 +1,15 @@
+KAL_economic_actions_category = {
+	icon = generic_economy_category
+
+	allowed = {
+		original_tag = KAL
+	}
+}
+
+KAL_northsea_oil_drilling_category = {
+	icon = generic_economy
+
+	allowed = {
+		original_tag = KAL
+	}
+}

@@ -1,0 +1,3446 @@
+focus_tree = {
+	id = kalmar_focus
+	
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			tag = KAL
+		}
+	}
+
+	continuous_focus_position = { x = 50 y = 1200 }
+
+ 
+#### TEMPLATE ####
+#	focus = {
+#		id = KAL_
+#		icon = GFX_
+#		prerequisite = { focus = KAL_ }
+#		mutually_exclusive = { focus = KAL_ }
+#		x = 0
+#		y = 0
+#
+#		cost = 10
+#
+#		ai_will_do = {
+#			factor = 1
+#		}
+#
+#		available = {
+#
+#		}
+#		
+#		bypass = {
+#
+#		}
+#
+#		cancel_if_invalid = yes
+#		continue_if_invalid = no
+#		available_if_capitulated = no
+#
+#		complete_tooltip = {
+#
+#		}
+#
+#		completion_reward = {
+#
+#		}
+#	}
+
+	focus = {
+		id = reunite_the_people
+		icon = GFX_focus_generic_diplomatic_treaty
+		x = 10
+		y = 0
+		cost = 10
+		ai_will_do = {
+			factor = 10
+		}
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_political_power = 50
+			add_stability = 0.10
+
+		}
+	}
+
+	focus = {
+		id = stay_royal
+		icon = GFX_focus_generic_home_defense
+		prerequisite = { focus = reunite_the_people }
+		mutually_exclusive = { focus = strike_a_different_path focus = right_to_vote }
+		available = {
+			has_government = monarchist
+		}
+		x = 17
+		y = 1
+		cost = 10
+
+		available_if_capitulated = yes
+
+
+		ai_will_do = {
+			factor = 5
+			modifier = {
+				factor = 0
+				OR = {
+					AND = {
+						is_historical_focus_on = yes
+						has_government = neutrality
+					}
+					has_idea = neutrality_idea
+				}
+			}
+		}
+
+		completion_reward = {
+			add_political_power = 50
+		}
+	}
+
+	focus = {
+		id = choose_christian
+		icon = GFX_goal_tfv_strengthen_commonwealth_ties
+		prerequisite = { focus = stay_royal }
+		mutually_exclusive = { focus = choose_gustaf focus = choose_haakon }
+		x = 17
+		y = 2
+		cost = 10
+		ai_will_do = {
+			factor = 10
+		}
+
+		available_if_capitulated = no
+
+		completion_reward = {
+			custom_effect_tooltip = choose_christian_tt
+			hidden_effect = {
+			create_country_leader = {
+				name = "Christian X"
+				desc = "POLITICS_OTTO_VON_HABSBURG_DESC"
+				picture = Portrait_Kalmar_King_Christian.tga
+				expire = "1965.1.1"
+				ideology = absolutemonarchy
+				traits = {
+					authoritarian_christian
+					}
+				traits = {
+					anti_democratic_christian
+				}
+			}
+		}
+			add_political_power = -10
+		}
+	}
+
+	focus = {
+		id = choose_gustaf
+		icon = GFX_goal_tfv_strengthen_commonwealth_ties
+		prerequisite = { focus = stay_royal }
+		mutually_exclusive = { focus = choose_haakon focus = choose_christian }
+		x = 15
+		y = 2
+		cost = 10
+		ai_will_do = {
+			factor = 0
+		}
+
+		available_if_capitulated = no
+
+
+		completion_reward = {
+			hidden_effect = {
+				set_capital = 141
+				create_country_leader = {
+				name = "Gustaf V"
+				desc = "POLITICS_OTTO_VON_HABSBURG_DESC"
+				picture = GFX_Portrait_Kalmar_King_Gustaf.tga
+				expire = "1965.1.1"
+				ideology = absolutemonarchy
+				traits = {
+					nazi_sympathies_gustaf
+				}
+			}
+		}
+			custom_effect_tooltip = choose_gustaf_capital_tt
+			custom_effect_tooltip = choose_gustaf_tt
+			set_party_name = { ideology = monarchist long_name = KAL_gustav_party_long name = KAL_gustav_party }
+			add_political_power = -10
+		}
+	}
+
+	focus = {
+		id = choose_haakon
+		icon = GFX_goal_tfv_strengthen_commonwealth_ties
+		prerequisite = { focus = stay_royal }
+		mutually_exclusive = { focus = choose_gustaf focus = choose_christian }
+		x = 19
+		y = 2
+		cost = 10
+		ai_will_do = {
+			factor = 0
+		}
+
+		available_if_capitulated = no
+
+		completion_reward = {
+			hidden_effect = {
+				set_capital = 110
+				create_country_leader = {
+				name = "Haakon VII"
+				desc = "POLITICS_OTTO_VON_HABSBURG_DESC"
+				picture = GFX_Portrait_Kalmar_King_Haakon.tga
+				expire = "1965.1.1"
+				ideology = absolutemonarchy
+				traits = {
+					popular_figurehead_haakon
+					anti_fascist_haakon
+				}
+			}
+		}
+		custom_effect_tooltip = choose_haakon_capital_tt
+		custom_effect_tooltip = choose_haakon_tt
+		set_party_name = { ideology = monarchist long_name = KAL_haakon_party_long name = KAL_haakon_party }
+		add_political_power = -10
+		}
+	}
+
+
+	focus = {
+		id = strike_a_different_path
+		icon = GFX_focus_rom_abdicate
+		prerequisite = { focus = reunite_the_people }
+		mutually_exclusive = { focus = stay_royal focus = right_to_vote }
+		x = 3
+		y = 1
+		cost = 10
+
+		available_if_capitulated = yes
+
+
+		ai_will_do = {
+			factor = 10
+		}
+
+		completion_reward = {
+			add_stability = -0.05
+			remove_ideas = tired_monarchy
+			add_ideas = KAL_civil_unrest
+		}
+	}
+
+	focus = {
+		id = right_to_vote
+		icon = GFX_goal_support_democracy
+		prerequisite = { focus = reunite_the_people }
+		mutually_exclusive = { focus = strike_a_different_path focus = stay_royal }
+		x = 10
+		y = 1
+		cost = 10
+		ai_will_do = {
+			factor = 5
+		}
+
+		available_if_capitulated = no
+
+		completion_reward = {
+			add_stability = 0.05
+		}
+	}
+
+	focus = {
+		id = federative_republic
+		icon = GFX_goal_generic_national_unity
+		prerequisite = { focus = right_to_vote }
+		mutually_exclusive = { focus = constitutional_monarchy }
+		x = 9
+		y = 2
+		cost = 10
+		ai_will_do = {
+			factor = 5
+		}
+
+		available_if_capitulated = no
+
+		completion_reward = {
+			ROOT = { country_event = { id = kalmar.3 } }
+		}
+	}
+
+	focus = {
+		id = constitutional_monarchy
+		icon = GFX_goal_tripartite_pact
+		prerequisite = { focus = right_to_vote }
+		mutually_exclusive = { focus = federative_republic }
+		x = 11
+		y = 2
+		cost = 10
+		ai_will_do = {
+			factor = 5
+		}
+
+		available_if_capitulated = no
+
+		completion_reward = {
+			ROOT = { country_event = { id = kalmar.4 } }
+		}
+	}
+
+	focus = {
+		id = KAL_neutral
+		icon = GFX_goal_generic_neutrality_focus
+		prerequisite = { focus = federative_republic focus = constitutional_monarchy }
+		mutually_exclusive = { focus = KAL_interventionist_foreign_policy }
+		x = 12
+		y = 3
+		cost = 10
+		ai_will_do = {
+			factor = 5
+		}
+
+		available_if_capitulated = no
+
+		completion_reward = {
+			add_ideas = neutrality_idea
+			add_political_power = 100
+		}
+	}
+
+	focus = {
+		id = KAL_homeguard
+		icon = GFX_goal_generic_military_sphere
+		prerequisite = { focus = KAL_interventionist_foreign_policy focus = KAL_neutral }
+		x = 13
+		y = 4
+		cost = 10
+		ai_will_do = {
+			factor = 5
+		}
+
+		available_if_capitulated = no
+
+		completion_reward = {
+			add_ideas = KAL_home_guard
+		}
+	}
+
+	focus = {
+		id = KAL_extend_the_right_to_vote
+		icon = GFX_goal_generic_demand_territory
+		prerequisite = { focus = federative_republic focus = constitutional_monarchy }
+		x = 8
+		y = 3
+		cost = 10
+		ai_will_do = {
+			factor = 5
+		}
+
+		available_if_capitulated = no
+
+		completion_reward = {
+			add_ideas = KAL_women_suffrage
+			add_stability = 0.10
+		}
+	}
+
+	focus = {
+		id = KAL_interventionist_foreign_policy
+		icon = GFX_goal_generic_more_territorial_claims
+		prerequisite = { focus = federative_republic focus = constitutional_monarchy }
+		mutually_exclusive = { focus = KAL_neutral }
+		x = 10
+		y = 3
+		cost = 10
+		ai_will_do = {
+			factor = 5
+		}
+
+		available_if_capitulated = no
+
+		completion_reward = {
+			add_ideas = volunteer_corps_focus
+			set_rule = { can_send_volunteers = yes }
+			add_political_power = 100
+		}
+	}
+
+#	focus = {
+#		id = KAL_no_nuclear_weapons
+#		icon = GFX_focus_wonderweapons
+#		prerequisite = { focus = federative_republic focus = constitutional_monarchy }
+#		x = 8
+#		y = 3
+#		cost = 10
+#		ai_will_do = {
+#			factor = 5
+#		}
+#
+#		available_if_capitulated = no
+#
+#		completion_reward = {
+#			add_political_power = -25
+#		}
+#	}
+
+	focus = {
+		id = KAL_support_fascism
+		icon = GFX_goal_support_fascism #icon = GFX_goal_tripartite_pact
+		prerequisite = { focus = strike_a_different_path }
+		mutually_exclusive = { focus = KAL_copenhagen_revolution }
+		available = {
+		}
+		x = 4
+		y = 2
+		cost = 10
+
+		available_if_capitulated = yes
+
+
+		ai_will_do = {
+			factor = 5
+			modifier = {
+				factor = 2
+				any_neighbor_country = {
+					is_major = yes
+					has_government = fascism
+				}
+			}
+			modifier = {
+				factor = 0
+				AND = {
+					is_historical_focus_on = yes
+					NOT = { has_government = fascism }
+				}
+			}
+		}
+
+		completion_reward = {
+			add_ideas = nationalism
+		}
+	}
+
+	focus = {
+		id = KAL_conscript_the_youth
+		icon = GFX_focus_generic_little_entente
+		prerequisite = { focus = KAL_support_fascism }
+		available = {
+			has_government = fascism
+		}
+		x = 6
+		y = 4
+		cost = 10
+
+		available_if_capitulated = yes
+
+
+		ai_will_do = {
+			factor = 5
+		}
+
+		completion_reward = {
+			add_ideas = KAL_youth_conscripted
+		}
+	}
+
+	focus = {
+		id = KAL_democratic_create_faction
+		icon = GFX_goal_anschluss
+		prerequisite = { focus = KAL_interventionist_foreign_policy }
+		mutually_exclusive = { focus = KAL_join_allies }
+		x = 11
+		y = 4
+		cost = 10
+
+		ai_will_do = {
+			factor = 0
+		}
+
+		available = {
+			KAL = { has_government = democratic }
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		complete_tooltip = {
+
+		}
+
+		completion_reward = {
+			set_rule = { can_create_factions = yes }
+			create_faction = KAL_democratic_faction
+			add_to_tech_sharing_group = nsto
+		}
+	}
+
+	focus = {
+		id = KAL_attack_germany
+		icon = GFX_goal_generic_major_war
+		prerequisite = { focus = KAL_democratic_create_faction }
+		will_lead_to_war_with = GER
+		available = {
+			GER = {
+				has_added_tension_amount > 30
+				has_government = fascism
+				has_war_with = POL
+				has_war_with = FRA
+				has_war_with = ENG
+				exists = yes
+			}
+			AND = {
+				NOT = { is_in_faction_with = GER }
+			}
+		}
+		x = 11
+		y = 5
+		cost = 10
+		completion_reward = {
+			create_wargoal = {
+				type = puppet_wargoal_focus
+				target = GER
+			}
+		}
+	}
+
+	focus = {
+		id = KAL_join_allies
+		icon = GFX_goal_generic_alliance
+		prerequisite = { focus = KAL_interventionist_foreign_policy }
+		mutually_exclusive = { focus = KAL_democratic_create_faction }
+		x = 9
+		y = 4
+		cost = 10
+
+		ai_will_do = {
+			factor = 0
+		}
+
+		available = {
+			is_puppet = no
+			has_government = democratic
+			ENG = {
+				exists = yes
+				has_government = democratic
+			}
+			NOT = { has_war_with = ENG }
+		}
+		bypass = {
+			is_in_faction_with = ENG
+			NOT = {
+				has_completed_focus = FRA_little_entente
+			}
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		complete_tooltip = {
+
+		}
+
+		completion_reward = {
+			ENG = {
+				add_opinion_modifier = { 
+					target = ROOT
+					modifier = medium_increase
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = KAL_copenhagen_revolution
+		icon = GFX_goal_support_communism
+		prerequisite = { focus = strike_a_different_path }
+		mutually_exclusive = { focus = KAL_support_fascism }
+		available = {
+		}
+		x = 2
+		y = 2
+		cost = 10
+
+		available_if_capitulated = yes
+
+
+		ai_will_do = {
+			factor = 5
+			modifier = {
+				factor = 2
+				any_neighbor_country = {
+					is_major = yes
+					has_government = communism
+				}
+			}			
+			modifier = {
+				factor = 0
+				AND = {
+					is_historical_focus_on = yes
+					NOT = { has_government = communism }
+				}
+			}
+		}
+
+		completion_reward = {
+			add_ideas = internationalism
+		}
+	}
+
+	focus = {
+		id = KAL_befriend_the_soviets
+		icon = GFX_focus_generic_soviet_politics
+		prerequisite = { focus = KAL_copenhagen_revolution }
+		mutually_exclusive = { focus = KAL_befriend_the_germans focus = KAL_strike_our_own_path }
+		x = 1
+		y = 3
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 50
+		}
+
+		available = {
+			SOV = {
+				NOT = { has_war_with = ROOT }
+				exists = yes
+				has_capitulated = no
+			}
+		}
+
+		bypass = {
+		 
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		complete_tooltip = {
+
+		}
+
+		completion_reward = {
+			SOV = {
+				add_opinion_modifier = { 
+					target = ROOT
+					modifier = medium_increase
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = KAL_befriend_the_germans
+		icon = GFX_focus_generic_support_the_left_right
+		prerequisite = { focus = KAL_support_fascism }
+		mutually_exclusive = { focus = KAL_befriend_the_soviets focus = KAL_strike_our_own_path }
+		x = 5
+		y = 3
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 50
+		}
+
+		available = {
+			GER = {
+				NOT = { has_war_with = ROOT }
+				exists = yes
+				has_capitulated = no
+			}
+		}
+
+		bypass = {
+		 
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		complete_tooltip = {
+
+		}
+
+		completion_reward = {
+			GER = {
+				add_opinion_modifier = { 
+					target = ROOT
+					modifier = medium_increase
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = KAL_outlaw_strikes
+		icon = GFX_focus_CZE_german_puppet
+		prerequisite = { focus = KAL_copenhagen_revolution }
+		x = 0
+		y = 4
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 50
+		}
+
+		available = {
+			has_government = communism
+		}
+
+		bypass = {
+		 
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_political_power = 120
+			add_timed_idea = {
+				idea = KAL_strikes_outlawed
+				days = 35
+			}
+			}
+		}
+
+	focus = {
+		id = KAL_statepolice_communist
+		icon = GFX_focus_generic_join_comintern
+		prerequisite = { focus = KAL_outlaw_strikes }
+		x = 0
+		y = 5
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 50
+		}
+
+		available = {
+
+		}
+
+		bypass = {
+		 
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_ideas = KAL_statspoliti_communist
+			remove_ideas = KAL_civil_unrest
+		}
+	}
+
+	focus = {
+		id = KAL_statepolice_fascist
+		icon = GFX_focus_generic_military_mission
+		prerequisite = { focus = KAL_conscript_the_youth }
+		x = 6
+		y = 5
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 50
+		}
+
+		available = {
+
+		}
+
+		bypass = {
+		 
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_ideas = KAL_statspoliti_fascist
+			remove_ideas = KAL_civil_unrest
+		}
+	}	
+
+	focus = {
+		id = KAL_strike_our_own_path
+		icon = GFX_goal_generic_political_pressure
+		prerequisite = { focus = KAL_support_fascism focus = KAL_copenhagen_revolution }
+		mutually_exclusive = { focus = KAL_befriend_the_soviets focus = KAL_befriend_the_germans }
+		x = 3
+		y = 3
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+			OR = {
+				has_government = fascism
+				has_government = communism
+			}
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		complete_tooltip = {
+
+		}
+
+		completion_reward = {
+			set_rule = { can_create_factions = yes }
+			remove_ideas = KAL_civil_unrest
+		}
+	}
+
+	focus = {
+		id = KAL_establish_a_royal_army
+		icon = GFX_focus_generic_strike_at_democracy1
+		prerequisite = { focus = choose_christian focus = choose_gustaf focus = choose_haakon }
+		x = 18
+		y = 3
+		cost = 10
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = tired_monarchy
+				add_idea = tired_monarchy2
+			}
+			add_ideas = KAL_royal_army
+		}
+	}
+
+	focus = {
+		id = KAL_konig_fedreland
+		icon = GFX_focus_secret_rearmament
+		prerequisite = { focus = KAL_establish_a_royal_army }
+		x = 18
+		y = 4
+		cost = 10
+		available = {
+			threat > 0.20
+		}
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = KAL_royal_army
+				add_idea = KAL_royal_army2
+			}
+		}
+	}
+
+	focus = {
+		id = KAL_state_church
+		icon = GFX_focus_generic_self_management
+		prerequisite = { focus = choose_christian focus = choose_gustaf focus = choose_haakon }
+		x = 16
+		y = 3
+		cost = 10
+		completion_reward = {
+			add_political_power = 100
+			add_stability = 0.10
+		}
+	}
+
+	focus = {
+		id = renew_the_monarchy
+		icon = GFX_focus_rom_royal_dictatorship
+		prerequisite = { focus = KAL_state_church }
+		prerequisite = { focus = KAL_konig_fedreland }
+		x = 17
+		y = 5
+		cost = 17.2
+		completion_reward = {
+			add_political_power = -100
+			remove_ideas = tired_monarchy2
+		}
+	}
+
+	focus = {
+		id = invite_baltic
+		icon = GFX_focus_generic_concessions
+		prerequisite = { focus = KAL_state_church }
+		available = { EST = { is_puppet = no }
+					  LAT = { is_puppet = no }
+					  LIT = { is_puppet = no }
+		
+				EST = { exists = yes }
+				LAT = { exists = yes }
+				LIT = { exists = yes }
+		}
+
+		x = 16
+		y = 4
+		cost = 10
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = no
+
+		completion_reward = {
+			add_political_power = -5
+		}
+	}
+
+	focus = {
+		id = reclaim_our_rightful_lands
+		icon = GFX_goal_generic_territory_or_war
+		prerequisite = { focus = KAL_prepare_for_war }
+		available = {
+			OR = {
+				has_government = fascism
+				has_government = monarchist
+			}
+		}
+		x = 5
+		y = 6
+		cost = 10
+		bypass = {
+			120 = { is_owned_by = KAL }
+			331 = { is_owned_by = KAL }
+		}
+		ai_will_do = {
+			factor = 10	
+		}	
+		completion_reward = {
+			745 = { add_claim_by = KAL }
+			331 = { add_claim_by = KAL }
+		}
+	}
+
+
+	focus = {
+		id = KAL_shield_our_brothers
+		icon = GFX_goal_generic_defence
+		prerequisite = { focus = KAL_democratic_create_faction focus = KAL_join_allies }
+		x = 9
+		y = 5
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+
+	available = { 
+			NOT = { has_war_with = EST 
+					has_war_with = LAT
+					has_war_with = LIT
+						}
+			EST = { exists = yes }
+			LAT = { exists = yes }
+			LIT = { exists = yes }
+		}
+
+		completion_reward = {
+			add_political_power = -75
+			give_guarantee = EST
+			give_guarantee = LAT
+			give_guarantee = LIT
+		}
+	}
+
+
+#	focus = {
+#		id = KAL_ally_with_the_baltic
+#		icon = GFX_goal_generic_improve_relations
+#		prerequisite = { focus = KAL_democratic_create_faction }
+#		x = 11
+#		y = 5
+#		cost = 10
+#
+#		ai_will_do = {
+#			factor = 1
+#		}
+#
+#
+#	available = { 
+#			NOT = { has_war_with = EST 
+#					has_war_with = LAT
+#					has_war_with = LIT
+#						}
+#			EST = { exists = yes }
+#			LAT = { exists = yes }
+#			LIT = { exists = yes }
+#		}
+#
+#		completion_reward = {
+#			add_political_power = -10
+#		}
+#	}
+
+#	focus = {
+#		id = KAL_ally_with_the_us
+#		icon = GFX_goal_generic_improve_relations
+#		prerequisite = { focus = KAL_democratic_create_faction }
+#		x = 13
+#		y = 5
+#		cost = 10
+#
+#		ai_will_do = {
+#			factor = 1
+#		}
+#
+#
+#	available = { 
+#			NOT = { has_war_with = USA }
+#			USA = { exists = yes }
+#		}
+#
+#		completion_reward = {
+#			add_political_power = -10
+#		}
+#	}
+
+
+
+	##################
+	#### INDUSTRY ####
+ 	##################
+
+
+
+	focus = {
+		id = prepare_industrialization
+		icon = GFX_goal_generic_production
+		x = 24
+		y = 0
+		cost = 10
+		ai_will_do = {
+			factor = 9
+		}
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = industrial_bonus
+				bonus = 0.25
+				uses = 2
+				category = industry
+			}
+		}
+	}
+
+	focus = {
+		id = develop_overseas_territories
+		icon = GFX_goal_generic_production
+		prerequisite = { focus = prepare_industrialization }
+		x = 28
+		y = 1
+		cost = 10
+		ai_will_do = {
+			factor = 9
+		}
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = construction_tech_bonus
+				bonus = 0.25
+				uses = 1
+				category = construction_tech
+			}
+		}
+	}
+
+	focus = {
+		id = plan_north_construction
+		icon = GFX_goal_generic_construction
+		prerequisite = { focus = prepare_industrialization }
+		x = 25
+		y = 1
+		cost = 10
+		ai_will_do = {
+			factor = 9
+		}
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = construction_tech_bonus
+				bonus = 0.30
+				uses = 1
+				category = construction_tech
+			}
+		}
+	}
+
+	focus = {
+		id = industrialize_the_north
+		icon = GFX_goal_generic_construct_civilian
+		prerequisite = { focus = arctic_circle_railways }
+		prerequisite = { focus = civilian_factory2 }
+		x = 25
+		y = 3
+		cost = 10
+		ai_will_do = {
+			factor = 5
+		}
+
+		available = {
+				controls_state = 144
+				controls_state = 148
+			}
+
+		available_if_capitulated = yes
+
+		ai_will_do = {
+			factor = 2
+		}
+
+		completion_reward = {
+			144 = {
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = industrial_complex
+						level = 1
+						instant_build = yes
+					}
+				}
+			148 = {
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = industrial_complex
+						level = 1
+						instant_build = yes
+					}
+				}
+			}
+		}
+
+	focus = {
+		id = industrialize_middle_kalmar
+		icon = GFX_goal_generic_construct_civ_factory
+		prerequisite = { focus = cross_midland_railroad }
+		x = 25
+		y = 5
+		cost = 10
+		ai_will_do = {
+			factor = 5
+		}
+
+		available = {
+				controls_state = 763
+				controls_state = 38
+			}
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			763 = {
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = industrial_complex
+						level = 1
+						instant_build = yes
+					}
+				}
+			38 = {
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = industrial_complex
+						level = 1
+						instant_build = yes
+					}
+				}
+			}
+		}
+
+	focus = {
+		id = arm_the_north
+		icon = GFX_goal_generic_construct_mil_factory
+		prerequisite = { focus = industrialize_middle_kalmar }
+		x = 25
+		y = 6
+		cost = 10
+		ai_will_do = {
+			factor = 9
+		}
+
+		available = {
+				controls_state = 666
+				controls_state = 148
+			}
+
+		available_if_capitulated = yes
+
+		ai_will_do = {
+			factor = 2
+		}
+
+		completion_reward = {
+				666 = {
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = arms_factory
+						level = 1
+						instant_build = yes
+					}
+				}
+				148 = {
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = arms_factory
+						level = 1
+						instant_build = yes
+					}
+				}
+			}		
+		}
+
+	focus = {
+		id = military_factory
+		icon = GFX_goal_generic_construct_mil_factory
+		prerequisite = { focus = prepare_industrialization }
+		x = 21
+		y = 1
+		cost = 10
+
+		ai_will_do = {
+			factor = 40
+		}
+
+		available = {
+				controls_state = 139
+				controls_state = 141
+			}
+
+		bypass = {
+
+		}
+
+		completion_reward = {
+				139 = {
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = arms_factory
+						level = 1
+						instant_build = yes
+					}
+				}
+
+				141 = {
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = arms_factory
+						level = 1
+						instant_build = yes
+					}
+				}
+			}
+		}
+		
+	
+
+	focus = {
+		id = military_factory2
+		icon = GFX_goal_generic_construct_mil_factory
+		prerequisite = { focus = military_factory focus = civilian_factory }
+		x = 21
+		y = 2
+		cost = 10
+
+		ai_will_do = {
+			factor = 5
+		}
+
+		available = {
+				controls_state = 110
+				controls_state = 142
+			}
+
+		bypass = {
+
+		}
+
+		completion_reward = {
+				110 = {
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = arms_factory
+						level = 1
+						instant_build = yes
+					}
+				}
+				142 = {
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = arms_factory
+						level = 1
+						instant_build = yes
+					}
+				}
+			}
+		}
+	
+
+	focus = {
+		id = military_factory3
+		icon = GFX_goal_generic_construct_mil_factory
+		prerequisite = { focus = military_factory2 }
+		x = 21
+		y = 3
+		cost = 10
+
+		ai_will_do = {
+			factor = 0
+		}
+
+		available = {
+				controls_state = 37
+				controls_state = 58
+			}
+
+		bypass = {
+
+		}
+
+		completion_reward = {
+				37 = {
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = arms_factory
+						level = 1
+						instant_build = yes
+					}
+				}
+
+				99 = {
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = arms_factory
+						level = 1
+						instant_build = yes
+					}
+				}
+			}
+	}
+
+	focus = {
+		id = civilian_factory
+		icon = GFX_goal_generic_construct_civ_factory
+		prerequisite = { focus = prepare_industrialization }
+		x = 23
+		y = 1
+		cost = 10
+		ai_will_do = {
+			factor = 9
+		}
+
+		available = {
+				controls_state = 38
+				controls_state = 666
+			}
+
+		available_if_capitulated = yes
+
+		ai_will_do = {
+			factor = 2
+		}
+
+		completion_reward = {
+			38 = {
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = industrial_complex
+						level = 1
+						instant_build = yes
+					}
+				}
+			666 = {
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = industrial_complex
+						level = 1
+						instant_build = yes
+					}
+				}
+			}
+		}
+
+		
+	focus = {
+		id = civilian_factory2
+		icon = GFX_goal_generic_construct_civ_factory
+		prerequisite = { focus = civilian_factory focus = military_factory }
+		x = 23
+		y = 2
+		cost = 10
+		ai_will_do = {
+			factor = 5
+		}
+
+		available = {
+				controls_state = 143
+				controls_state = 144
+			}
+
+		available_if_capitulated = yes
+
+		ai_will_do = {
+			factor = 2
+		}
+
+		completion_reward = {
+			143 = {
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = industrial_complex
+						level = 1
+						instant_build = yes
+					}
+				}
+			144 = {
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = industrial_complex
+						level = 1
+						instant_build = yes
+					}
+				}
+			}
+		}
+
+	focus = {
+		id = arctic_circle_railways
+		icon = GFX_goal_generic_construct_infrastructure
+		prerequisite = { focus = plan_north_construction }
+		x = 25
+		y = 2
+		cost = 10
+		ai_will_do = {
+			factor = 5
+		}
+
+		available_if_capitulated = yes
+
+		available = {
+				controls_state = 144
+				controls_state = 666
+				controls_state = 148
+			}
+
+		completion_reward = {
+				144 = {
+					if = {
+						limit = { is_controlled_by = ROOT }
+						add_building_construction = {
+							type = infrastructure
+							level = 1
+							instant_build = yes
+						}
+					}
+				}
+				666 = {
+					if = {
+						limit = { is_controlled_by = ROOT }
+						add_building_construction = {
+							type = infrastructure
+							level = 1
+							instant_build = yes
+						}
+					}
+				}
+				148 = {
+					if = {
+						limit = { is_controlled_by = ROOT }
+						add_building_construction = {
+							type = infrastructure
+							level = 1
+							instant_build = yes
+						}
+					}
+				}
+			}		
+		}
+
+	focus = {
+		id = trinity_improvement_effort
+		icon = GFX_goal_generic_construct_infrastructure
+		prerequisite = { focus = prepare_industrialization }
+		x = 19
+		y = 1
+		cost = 10
+
+		ai_will_do = {
+			factor = 0
+		}
+
+		available = {
+				has_full_control_of_state = 37
+				has_full_control_of_state = 110
+				has_full_control_of_state = 141
+			}
+
+		completion_reward = {
+			custom_effect_tooltip = KAL_trinity_effort_tt
+			hidden_effect = {
+				37 = {
+					if = {
+						limit = { is_controlled_by = ROOT }
+						add_building_construction = {
+							type = infrastructure
+							level = 10
+							instant_build = yes
+						}
+					}
+				}
+				110 = {
+					if = {
+						limit = { is_controlled_by = ROOT }
+						add_building_construction = {
+							type = infrastructure
+							level = 10
+							instant_build = yes
+						}
+					}
+				}
+				141 = {
+					if = {
+						limit = { is_controlled_by = ROOT }
+						add_building_construction = {
+							type = infrastructure
+							level = 10
+							instant_build = yes
+						}
+					}
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = cross_midland_railroad
+		icon = GFX_goal_generic_construct_infrastructure
+		prerequisite = { focus = industrialize_the_north }
+		x = 25
+		y = 4
+		cost = 10
+		ai_will_do = {
+			factor = 5
+		}
+
+		available_if_capitulated = yes
+
+		available = {
+				controls_state = 143
+				controls_state = 763
+				controls_state = 38
+			}
+
+		completion_reward = {
+				143 = {
+					if = {
+						limit = { is_controlled_by = ROOT }
+						add_building_construction = {
+							type = infrastructure
+							level = 1
+							instant_build = yes
+						}
+					}
+				}
+				763 = {
+					if = {
+						limit = { is_controlled_by = ROOT }
+						add_building_construction = {
+							type = infrastructure
+							level = 1
+							instant_build = yes
+						}
+					}
+				}
+				38 = {
+					if = {
+						limit = { is_controlled_by = ROOT }
+						add_building_construction = {
+							type = infrastructure
+							level = 1
+							instant_build = yes
+						}
+					}
+				}
+			}		
+		}
+
+	focus = {
+		id = improve_the_soviet_border
+		icon = GFX_goal_generic_construct_infrastructure
+		prerequisite = { focus = soviet_border }
+		available = {
+			is_neighbor_of = SOV
+			SOV = {
+				exists = yes 
+				controls_state = 146
+				controls_state = 215
+				controls_state = 147
+				controls_state = 722
+				controls_state = 213
+				}
+			}
+
+		x = 44
+		y = 3
+		cost = 10
+		ai_will_do = {
+			factor = 5
+		}
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+				148 = {
+					if = {
+						limit = { is_controlled_by = ROOT }
+						add_building_construction = {
+							type = infrastructure
+							level = 1
+							instant_build = yes
+						}
+					}
+				}
+				150 = {
+					if = {
+						limit = { is_controlled_by = ROOT }
+						add_building_construction = {
+							type = infrastructure
+							level = 1
+							instant_build = yes
+						}
+					}
+				}
+				111 = {
+					if = {
+						limit = { is_controlled_by = ROOT }
+						add_building_construction = {
+							type = infrastructure
+							level = 1
+							instant_build = yes
+						}
+					}
+				}
+			}		
+		}
+
+	focus = {
+		id = civilian_factory3
+		icon = GFX_goal_generic_construct_civ_factory
+		prerequisite = { focus = civilian_factory2 }
+		x = 23
+		y = 3
+		cost = 10
+		ai_will_do = {
+			factor = 9
+		}
+
+		available = {
+				controls_state = 58
+				controls_state = 138
+			}
+
+		available_if_capitulated = yes
+
+		ai_will_do = {
+			factor = 2
+		}
+
+		completion_reward = {
+			58 = {
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = industrial_complex
+						level = 1
+						instant_build = yes
+					}
+				}
+			138 = {
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = industrial_complex
+						level = 1
+						instant_build = yes
+					}
+				}
+			}
+		}
+
+	focus = {
+		id = develop_baltic_islands
+		icon = GFX_goal_generic_construction
+		prerequisite = { focus = develop_overseas_territories }
+		x = 27
+		y = 2
+		cost = 10
+
+		ai_will_do = {
+			factor = 5
+		}
+
+		available = {
+				controls_state = 124
+				controls_state = 145
+			}
+
+		completion_reward = {
+			if = {
+				limit = { has_full_control_of_state = 124 }
+				124 = {
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = industrial_complex
+						level = 1
+						instant_build = yes
+					}
+				}
+			}
+			if = {
+				limit = { has_full_control_of_state = 145 }
+				145 = {
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = industrial_complex
+						level = 1
+						instant_build = yes
+					}
+				}
+			}
+		}
+	}
+			
+	focus = {
+		id = develop_iceland
+		icon = GFX_goal_generic_construction
+		prerequisite = { focus = develop_overseas_territories }
+		x = 29
+		y = 2
+		cost = 10
+
+		ai_will_do = {
+			factor = 5
+		}
+
+		available = {
+				controls_state = 100
+			}
+
+		bypass = {
+
+		}
+
+		completion_reward = {
+				if = {
+					limit = { has_full_control_of_state = 100 }
+					100 = {
+						add_extra_state_shared_building_slots = 1
+						add_building_construction = {
+							type = industrial_complex
+							level = 1
+							instant_build = yes
+						}
+						add_building_construction = {
+							type = infrastructure
+							level = 1
+							instant_build = yes
+						}
+						custom_effect_tooltip = develop_iceland_tt
+						hidden_effect = {
+						add_building_construction = {
+							type = naval_base
+							level = 1
+							province = 12674
+							instant_build = yes
+						}
+					}
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = iceland_mines
+		icon = GFX_goal_generic_construction2
+		prerequisite = { focus = develop_iceland }
+		available = {
+				controls_state = 100
+			}
+		x = 29
+		y = 3
+
+			available_if_capitulated = yes
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 5
+		}
+
+		completion_reward = {
+			add_resource = {
+				type = aluminium
+				amount = 5
+				state = 100
+			}
+		}
+		completion_reward = {
+			add_resource = {
+				type = steel
+				amount = 2
+				state = 100
+			}
+		}
+	}
+
+	focus = {
+		id = develop_gronland
+		icon = GFX_goal_generic_construction
+		prerequisite = { focus = develop_overseas_territories }
+		available = {
+				controls_state = 101
+			}
+		x = 28
+		y = 4
+
+		cost = 10
+
+		available_if_capitulated = yes
+
+		ai_will_do = {
+			factor = 5
+		}
+
+		completion_reward = {
+				101 = {
+					if = {
+						limit = { is_controlled_by = ROOT }
+						add_extra_state_shared_building_slots = 1
+						add_building_construction = {
+							type = industrial_complex
+							level = 1
+							instant_build = yes
+						}
+						add_building_construction = {
+							type = infrastructure
+							level = 1
+							instant_build = yes
+						}
+					}
+				}
+			}		
+		}
+
+	focus = {
+		id = greenland_mines
+		icon = GFX_goal_generic_construction2
+		prerequisite = { focus = develop_gronland }
+		available = {
+				controls_state = 101
+			}
+		x = 28
+		y = 5
+
+			available_if_capitulated = yes
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 5
+		}
+
+		completion_reward = {
+			add_resource = {
+				type = aluminium
+				amount = 3
+				state = 101
+			}
+		}
+		completion_reward = {
+			add_resource = {
+				type = steel
+				amount = 1
+				state = 101
+			}
+		}
+	}
+
+	focus = {
+		id = discover_north_sea_oil
+		icon = GFX_goal_generic_oil_refinery
+		prerequisite = { focus = civilian_factory3 }
+		x = 23
+		y = 4
+		cost = 10
+		ai_will_do = {
+			factor = 0
+		}
+
+		available = {
+			has_full_control_of_state = 142
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_resource = {
+				type = oil
+				amount = 13
+				state = 142
+			}
+		}
+	}
+
+	focus = {
+		id = expand_oil_industry
+		icon = GFX_goal_generic_oil_refinery
+		prerequisite = { focus = discover_north_sea_oil }
+		prerequisite = { focus = cross_midland_railroad }
+		x = 23
+		y = 5
+		cost = 10
+		ai_will_do = {
+			factor = 0
+		}
+
+		available = {
+			has_full_control_of_state = 142
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_resource = {
+				type = oil
+				amount = 14
+				state = 142
+			}
+		}
+	}
+
+	focus = {
+		id = norwegian_oil_jackpot
+		icon = GFX_goal_generic_oil_refinery
+		prerequisite = { focus = expand_oil_industry }
+		prerequisite = { focus = industrialize_middle_kalmar }
+		x = 23
+		y = 6
+		cost = 10
+		ai_will_do = {
+			factor = 0
+		}
+		available = {
+			has_full_control_of_state = 143
+			has_full_control_of_state = 144
+		}
+
+		completion_reward = {
+			add_resource = {
+				type = oil
+				amount = 14
+				state = 143
+			}
+		}
+		completion_reward = {
+			add_resource = {
+				type = oil
+				amount = 30
+				state = 144
+			}
+		}
+	}
+
+	focus = {
+		id = invest_in_nordic_oil
+		icon = GFX_goal_generic_intelligence_exchange
+		prerequisite = { focus = norwegian_oil_jackpot }
+		x = 23
+		y = 7
+		cost = 10
+		ai_will_do = {
+			factor = 0
+		}
+
+		available = {
+			has_full_control_of_state = 142
+			has_full_control_of_state = 143
+			has_full_control_of_state = 144
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+
+		completion_reward = {
+			add_resource = {
+				type = oil
+				amount = 68
+				state = 142
+			}
+			add_resource = {
+				type = oil
+				amount = 23
+				state = 143
+			}
+			add_resource = {
+				type = oil
+				amount = 42
+				state = 144
+			}
+		}
+	}
+
+	focus = {
+		id = KAL_prepare_for_war
+		icon = GFX_goal_generic_position_armies
+		x = 3
+		y = 5
+		available = {
+		threat > 0.05
+			OR = {
+				has_government = fascism
+				has_government = communism
+				has_government = monarchist
+			}
+		}
+		cost = 10
+		completion_reward = {
+			add_political_power = 10
+		}
+	}
+
+	focus = {
+		id = KAL_claim_soviet_lands
+		icon = GFX_goal_generic_forceful_treaty
+		prerequisite = { focus = KAL_prepare_for_war }
+		available = {
+			OR = {
+				has_government = fascism
+				has_government = communism
+			}
+			NOT = { is_in_faction_with = SOV }
+		}
+		x = 3
+		y = 6
+		cost = 10
+		completion_reward = {
+			add_political_power = -5
+		}
+	}
+
+	focus = {
+		id = KAL_attack_soviet
+		icon = GFX_goal_generic_war_with_comintern
+		prerequisite = { focus = KAL_claim_soviet_lands }
+		will_lead_to_war_with = SOV
+		x = 3
+		y = 7
+		available = {
+			NOT = { is_in_faction_with = SOV }
+		}
+		cost = 10
+		completion_reward = {
+			create_wargoal = {
+				type = take_state_focus
+				target = SOV
+				generator = { 219 }
+			}
+		}
+	}
+
+	focus = {
+		id = KAL_attack_england
+		icon = GFX_focus_AST_never_gallipoli
+		prerequisite = { focus = reclaim_our_rightful_lands }
+		will_lead_to_war_with = ENG
+		x = 5
+		y = 7
+		cost = 10
+		completion_reward = {
+			create_wargoal = {
+				type = take_state_focus
+				target = ENG
+				generator = { 126 }
+			}
+		}
+	}
+
+	focus = {
+		id = prepare_baltic_invasion
+		icon = GFX_goal_generic_occupy_start_war
+		prerequisite = { focus = KAL_prepare_for_war }
+		available = {
+			OR = {
+				has_government = fascism
+				has_government = communism
+			}
+			NOT = { is_in_faction_with = EST 
+				    is_in_faction_with = LAT 
+				    is_in_faction_with = LIT }
+		}
+		x = 1
+		y = 6
+		cost = 10
+		completion_reward = {
+			add_political_power = -5
+		}
+	}
+
+	focus = {
+		id = attack_estonia
+		icon = GFX_goal_poland_goal
+		prerequisite = { focus = prepare_baltic_invasion }
+		will_lead_to_war_with = EST
+		available = {
+			AND = {
+			country_exists = EST
+			NOT = { is_in_faction_with = EST }
+			}
+		}
+		x = 1
+		y = 7
+		cost = 10
+		completion_reward = {
+			create_wargoal = {
+				type = take_state_focus
+				target = EST
+				generator = { 13 }
+			}
+		}
+	}
+
+	focus = {
+		id = attack_latvia
+		icon = GFX_goal_poland_goal
+		prerequisite = { focus = prepare_baltic_invasion }
+		will_lead_to_war_with = LAT
+		available = {
+			AND = {
+			country_exists = LAT
+			NOT = { is_in_faction_with = LAT }
+			}
+		}
+		x = 0
+		y = 8
+		cost = 10
+		completion_reward = {
+			create_wargoal = {
+				type = take_state_focus
+				target = LAT
+				generator = { 12 }
+			}
+		}
+	}
+
+	focus = {
+		id = attack_lithuania
+		icon = GFX_goal_poland_goal
+		prerequisite = { focus = prepare_baltic_invasion }
+		will_lead_to_war_with = LIT
+		available = {
+			country_exists = LIT
+			NOT = { is_in_faction_with = LIT }
+		}
+		x = 2
+		y = 8
+		cost = 10
+		completion_reward = {
+			create_wargoal = {
+				type = take_state_focus
+				target = LIT
+				generator = { 11 }
+			}
+		}
+	}
+
+
+	focus = {
+		id = KAL_institute_of_science
+		icon = GFX_focus_research
+		prerequisite = { focus = KAL_heavy_water }
+		prerequisite = { focus = norwegian_oil_jackpot }
+		x = 21
+		y = 7
+		cost = 10
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_research_slot = 1
+		}
+	}
+
+	focus = {
+		id = KAL_heavy_water
+		icon = GFX_focus_wonderweapons
+		prerequisite = { focus = military_factory3 }
+		prerequisite = { focus = discover_north_sea_oil }
+		x = 21
+		y = 5
+		cost = 10
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_tech_bonus = {
+				ahead_reduction = 0.25
+				category = nuclear
+			}
+		add_ideas = KAL_heavy_water_infrastructure
+		custom_effect_tooltip = available_political_advisor
+		show_ideas_tooltip = KAL_niels_bohr
+		}
+	}
+
+	focus = {
+		id = nukes_focus
+		icon = GFX_focus_wonderweapons
+		prerequisite = { focus = KAL_heavy_water }
+		x = 19
+		y = 7
+		cost = 10
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = secret_bonus
+				bonus = 0.5
+				uses = 1
+				category = nuclear
+			}
+		}
+	}
+
+	############
+	# MILITARY #
+	############
+
+	focus = {
+		id = KAL_nordic_armed_forces
+		icon = GFX_goal_generic_allies_build_infantry
+		x = 38
+		y = 0
+		cost = 10
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			army_experience = 10
+		}
+	}
+
+	focus = {
+		id = kalmarradar
+		prerequisite = { focus = KAL_forbedre_festninger }
+		icon = GFX_goal_generic_radar
+		x = 40
+		y = 2
+		cost = 10
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 0.5
+				uses = 2
+				category = radar_tech
+			}
+		}
+	}
+
+	focus = {
+		id = KAL_technological_advancement
+		icon = GFX_focus_secret_rearmament
+		prerequisite = { focus = kalmarradar }
+		x = 40
+		y = 3
+		cost = 10
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 0.5
+				uses = 4
+				category = electronics
+			}
+		}
+	}
+
+	focus = {
+		id = infantryweapons
+		icon = GFX_goal_generic_small_arms
+		prerequisite = { focus = KAL_nordic_armed_forces }
+		x = 32
+		y = 1
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 0.5
+				uses = 1
+				category = infantry_weapons
+			}
+		}
+	}
+
+	focus = {
+		id = KAL_artillery_advancement
+		icon = GFX_goal_generic_army_artillery2
+		prerequisite = { focus = infantryweapons }
+		x = 31
+		y = 2
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 0.5
+				uses = 1
+				category = artillery
+			}
+		}
+	}
+	
+	focus = {
+		id = KAL_supportcompanies
+		icon = GFX_goal_generic_special_forces
+		prerequisite = { focus = infantryweapons }
+		x = 33
+		y = 2
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 0.5
+				uses = 1
+				category = support_tech
+			}
+		}
+	}
+
+	focus = {
+		id = KAL_equipments
+		icon = GFX_goal_generic_army_artillery
+		prerequisite = { focus = KAL_artillery_advancement }
+		x = 32
+		y = 3
+		
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 0.5
+				uses = 1
+				category = infantry_weapons
+				category = artillery
+			}
+		}
+	}
+
+	focus = {
+		id = motorizedfocus
+		icon = GFX_goal_generic_army_motorized
+		prerequisite = { focus = KAL_nordic_armed_forces }
+		x = 35
+		y = 1
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+		
+		bypass = { has_tech = motorised_infantry }
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		complete_tooltip = {
+
+		}
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = motorized_bonus
+				bonus = 0.50
+				technology = motorised_infantry
+			}
+		}
+	}
+
+	focus = {
+		id = panzer1
+		icon = GFX_goal_generic_army_tanks
+		prerequisite = { focus = motorizedfocus }
+		x = 35
+		y = 2
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 0.5
+				uses = 1
+				category = armor
+			}
+		}
+	}
+
+	focus = {
+		id = panzer2
+		icon = GFX_goal_generic_army_tanks
+		prerequisite = { focus = panzer1 }
+		x = 35
+		y = 3
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 0.5
+				uses = 2
+				category = armor
+			}
+		}
+	}
+
+	focus = {
+		id = doctrine
+		icon = GFX_goal_generic_army_doctrines
+		prerequisite = { focus = KAL_nordic_armed_forces }
+		x = 38
+		y = 1
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			army_experience = 5
+			add_tech_bonus = {
+				bonus = 0.5
+				uses = 1
+				category = land_doctrine
+			}
+		}
+	}
+
+	focus = {
+		id = doctrine2
+		icon = GFX_goal_generic_army_doctrines
+		prerequisite = { focus = doctrine }
+		x = 38
+		y = 2
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			army_experience = 5
+			add_tech_bonus = {
+				bonus = 0.5
+				uses = 1
+				category = land_doctrine
+			}
+		}
+	}
+
+	focus = {
+		id = doctrine3
+		icon = GFX_goal_generic_army_doctrines
+		prerequisite = { focus = doctrine2 }
+		x = 38
+		y = 3
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+		 	army_experience = 5
+			add_tech_bonus = {
+				bonus = 0.5
+				uses = 1
+				category = land_doctrine
+			}
+		}
+	}
+
+	focus = {
+		id = KAL_mobilewarfare
+		icon = GFX_goal_generic_army_motorized
+		prerequisite = { focus = doctrine3 }
+		mutually_exclusive = { focus = KAL_superiorfirepower focus = KAL_grandbattleplan focus = KAL_massassault }
+		x = 35
+		y = 4
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+			has_tech = mobile_warfare
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			add_ideas = KAL_mobilewarfare_idea
+		}
+	}
+
+	focus = {
+		id = KAL_superiorfirepower
+		icon = GFX_goal_generic_army_artillery2
+		prerequisite = { focus = doctrine3 }
+		mutually_exclusive = { focus = KAL_mobilewarfare focus = KAL_grandbattleplan focus = KAL_massassault }
+		x = 37
+		y = 4
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+			has_tech = superior_firepower
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			add_ideas = KAL_superiorfirepower_idea
+		}
+	}
+
+	focus = {
+		id = KAL_grandbattleplan
+		icon = GFX_goal_generic_cavalry
+		prerequisite = { focus = doctrine3 }
+		mutually_exclusive = { focus = KAL_mobilewarfare focus = KAL_superiorfirepower focus = KAL_massassault }
+		x = 39
+		y = 4
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+			has_tech = trench_warfare
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_ideas = KAL_grandbattleplan_idea
+		}
+	}
+
+	focus = {
+		id = KAL_massassault
+		icon = GFX_goal_generic_army_artillery
+		prerequisite = { focus = doctrine3 }
+		mutually_exclusive = { focus = KAL_mobilewarfare focus = KAL_superiorfirepower focus = KAL_grandbattleplan }
+		x = 41
+		y = 4
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+			has_tech = mass_assault
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			add_ideas = KAL_massassault_idea
+		}
+	}
+
+	focus = {
+		id = KAL_forbedre_festninger
+		icon = GFX_goal_generic_fortify_city
+		prerequisite = { focus = KAL_nordic_armed_forces }
+		x = 42
+		y = 1
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			custom_effect_tooltip = available_political_advisor
+			show_ideas_tooltip = KAL_fortification_engineer
+			}
+		}
+	
+
+	focus = {
+		id = german_border
+		icon = GFX_goal_generic_construct_military
+		prerequisite = { focus = KAL_forbedre_festninger }
+		x = 42
+		y = 2
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+			has_full_control_of_state = 58
+			is_neighbor_of = GER
+			NOT = { has_government = fascism }
+			GER = {
+				exists = yes
+				NOT = { has_government = democratic }
+				has_added_tension_amount > 20
+			}
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+				ROOT = { country_event = { id = kalmar.1 } }
+		}
+	}
+	
+
+	focus = {
+		id = soviet_border
+		icon = GFX_goal_generic_construct_military
+		prerequisite = { focus = KAL_forbedre_festninger }
+		x = 44
+		y = 2
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+			has_full_control_of_state = 111
+			has_full_control_of_state = 150
+			has_full_control_of_state = 148
+			has_full_control_of_state = 144
+			is_neighbor_of = SOV
+			NOT = { has_government = communism }
+			SOV = {
+				exists = yes
+				NOT = { has_government = democratic }
+				has_added_tension_amount > 5
+				
+			}
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+		ROOT = { country_event = { id = kalmar.2 } }
+		}
+	}
+
+	focus = {
+		id = research_slot_army
+		icon = GFX_focus_research
+		prerequisite = { focus = KAL_mobilewarfare focus = KAL_superiorfirepower focus = KAL_grandbattleplan focus = KAL_massassault }
+		x = 38
+		y = 5
+		cost = 10
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_research_slot = 1
+		}
+	}
+
+	################
+	### AVIATION ###
+	################
+
+
+	focus = {
+		id = KAL_combined_nordic_air_force
+		icon = GFX_goal_generic_build_airforce
+		x = 51
+		y = 0
+		cost = 10
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			air_experience = 25
+		}
+	}
+
+	focus = {
+		id = KAL_southern_airbase_expansion
+		icon = GFX_goal_generic_air_production
+		prerequisite = { focus = KAL_combined_nordic_air_force }
+		x = 48
+		y = 1
+		cost = 10
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+
+		available = {
+			has_full_control_of_state = 37
+			has_full_control_of_state = 58
+			has_full_control_of_state = 138
+		}
+
+		completion_reward = {
+				37 = {
+					if = {
+						limit = { is_controlled_by = ROOT }
+						add_building_construction = {
+							type = air_base
+							level = 2
+							instant_build = yes
+						}
+					}
+				}
+				58 = {
+					if = {
+						limit = { is_controlled_by = ROOT }
+
+						add_building_construction = {
+							type = air_base
+							level = 3
+							instant_build = yes
+						}
+					}
+				}
+				138 = {
+					if = {
+						limit = { is_controlled_by = ROOT }
+						add_building_construction = {
+							type = air_base
+							level = 3
+							instant_build = yes
+						}
+					}
+				}
+			}		
+		}
+
+	focus = {
+		id = KAL_northern_airbase_expansion
+		icon = GFX_goal_generic_air_production
+		prerequisite = { focus = KAL_combined_nordic_air_force }
+		x = 54
+		y = 1
+		cost = 10
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+
+		available = {
+			has_full_control_of_state = 144
+			has_full_control_of_state = 666
+			has_full_control_of_state = 148
+		}
+
+		completion_reward = {
+				144 = {
+					if = {
+						limit = { is_controlled_by = ROOT }
+						add_building_construction = {
+							type = air_base
+							level = 1
+							instant_build = yes
+						}
+					}
+				}
+				666 = {
+					if = {
+						limit = { is_controlled_by = ROOT }
+
+						add_building_construction = {
+							type = air_base
+							level = 1
+							instant_build = yes
+						}
+					}
+				}
+				148 = {
+					if = {
+						limit = { is_controlled_by = ROOT }
+						add_building_construction = {
+							type = air_base
+							level = 2
+							instant_build = yes
+						}
+					}
+				}
+			}		
+		}
+
+	focus = {
+		id = KAL_fighters
+		icon = GFX_goal_generic_air_fighter
+		prerequisite = { focus = KAL_combined_nordic_air_force }
+		mutually_exclusive = { focus = KAL_bombers }
+		x = 50
+		y = 1
+		cost = 10
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 0.5
+				uses = 1
+				category = light_fighter
+			}
+		}
+	}
+
+	focus = {
+		id = KAL_bombers
+		icon = GFX_goal_generic_air_bomber
+		prerequisite = { focus = KAL_combined_nordic_air_force }
+		mutually_exclusive = { focus = KAL_fighters }
+		x = 52
+		y = 1
+		cost = 10
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 0.5
+				uses = 1
+				category = tactical_bomber
+			}
+		}
+	}
+
+	focus = {
+		id = KAL_airdoctrine
+		icon = GFX_goal_generic_air_doctrine
+		prerequisite = { focus = KAL_fighters focus = KAL_bombers }
+		x = 51
+		y = 2
+		cost = 10
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			air_experience = 50
+
+			add_tech_bonus = {
+				name = FRA_air_doctrine
+				bonus = 0.5
+				uses = 2
+				category = air_doctrine
+			}
+		}
+	}
+
+	focus = {
+		id = KAL_heavy_fighters
+		icon = GFX_goal_generic_air_fighter
+		prerequisite = { focus = KAL_fighters }
+		x = 49
+		y = 2
+		cost = 10
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 0.5
+				uses = 1
+				category = cat_heavy_fighter
+			}
+		}
+	}
+
+	focus = {
+		id = KAL_strategic_bombers
+		icon = GFX_goal_generic_air_bomber
+		prerequisite = { focus = KAL_bombers }
+		x = 53
+		y = 2
+		cost = 10
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 0.5
+				uses = 1
+				category = cat_strategic_bomber
+			}
+		}
+	}
+
+	focus = {
+		id = KAL_cas
+		icon = GFX_goal_generic_CAS
+		prerequisite = { focus = KAL_fighters focus = KAL_bombers }
+		x = 50
+		y = 3
+		cost = 10
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 0.5
+				uses = 2
+				category = cas_bomber
+			}
+		}
+	}
+
+	focus = {
+		id = KAL_nav
+		icon = GFX_goal_generic_air_naval_bomber
+		prerequisite = { focus = KAL_bombers focus = KAL_fighters }
+		x = 52
+		y = 3
+		cost = 10
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 0.5
+				uses = 2
+				category = naval_bomber
+			}
+		}
+	}
+
+	focus = {
+		id = KAL_rockets
+		icon = GFX_focus_rocketry
+		prerequisite = { focus = KAL_airdoctrine }
+		x = 51
+		y = 4
+		cost = 10
+		ai_will_do = {
+			factor = 1
+		}	
+
+		available_if_capitulated = yes
+
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = secret_bonus
+				bonus = 0.75
+				uses = 1
+				category = rocketry
+			}
+		}
+	}
+
+	############
+	### NAVY ###
+	############
+
+	focus = {
+		id = KAL_navy1
+		icon = GFX_goal_generic_build_navy
+		x = 58
+		y = 0
+		cost = 10
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			navy_experience = 25
+		}
+	}
+
+	focus = {
+		id = KAL_expand_dockyards1
+		icon = GFX_goal_generic_construct_naval_dockyard 
+		prerequisite = { focus = KAL_navy1 }
+		x = 56
+		y = 1
+		cost = 10
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+				controls_state = 99
+				controls_state = 58
+			}
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+				99 = {
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = dockyard
+						level = 1
+						instant_build = yes
+					}
+				}
+
+				58 = {
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = dockyard
+						level = 1
+						instant_build = yes
+					}
+				}
+			}
+		}
+
+	focus = {
+		id = KAL_expand_dockyards2
+		icon = GFX_goal_generic_construct_naval_dockyard 
+		prerequisite = { focus = KAL_navy1 }
+		x = 60
+		y = 1
+		cost = 10
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+				controls_state = 141
+				controls_state = 139
+			}
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+				141 = {
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = dockyard
+						level = 1
+						instant_build = yes
+					}
+				}
+
+				139 = {
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = dockyard
+						level = 1
+						instant_build = yes
+					}
+				}
+			}
+		}
+
+	focus = {
+		id = KAL_navy_doctrine
+		icon = GFX_goal_generic_navy_doctrines_tactics
+	 	prerequisite = { focus = KAL_navy1 }
+		x = 58
+		y = 1
+		cost = 10
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			navy_experience = 50
+			add_tech_bonus = {
+				bonus = 0.5
+				uses = 2
+				category = naval_doctrine
+			}
+		}
+	}
+
+	focus = {
+		id = KAL_establish_jomsvikings
+		icon = GFX_goal_generic_amphibious_assault
+	 	prerequisite = { focus = KAL_navy_doctrine }
+		x = 61
+		y = 2
+		cost = 10
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_ideas = KAL_jomsvikings
+			add_tech_bonus = {
+				bonus = 0.5
+				uses = 1
+				technology = landing_craft
+				technology = tank_landing_craft
+			}
+		}		
+	}
+
+	focus = {
+		id = KAL_modernize_the_navy
+		icon = GFX_goal_generic_navy_battleship
+	 	prerequisite = { focus = KAL_navy_doctrine }
+	 	mutually_exclusive = { focus = KAL_submarines }
+		x = 57
+		y = 2
+		cost = 10
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = FRA_capital_ship_focus
+				bonus = 0.5
+				uses = 2
+				category = bb_tech
+				category = bc_tech
+			}
+		}
+	}
+
+	focus = {
+		id = KAL_submarines
+		icon = GFX_goal_generic_navy_submarine
+	 	prerequisite = { focus = KAL_navy_doctrine }
+	 	mutually_exclusive = { focus = KAL_modernize_the_navy }
+		x = 59
+		y = 2
+		cost = 10
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 0.5
+				uses = 2
+				category = ss_tech
+			}
+		}
+	}
+
+	focus = {
+		id = KAL_carriers
+		icon = GFX_goal_generic_navy_carrier
+	 	prerequisite = { focus = KAL_combined_nordic_air_force }
+	 	prerequisite = { focus = KAL_modernize_the_navy focus = KAL_submarines }
+		x = 55
+		y = 3
+		cost = 10
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = FRA_carrier_focus
+				bonus = 0.5
+				uses = 2
+				category = cv_tech
+			}
+		}
+	}
+
+	focus = {
+		id = KAL_destroyers
+		icon = GFX_goal_generic_navy_cruiser
+	 	prerequisite = { focus = KAL_submarines focus = KAL_modernize_the_navy }
+		x = 59
+		y = 3
+		cost = 10
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 0.5
+				uses = 1
+				category = dd_tech
+			}
+		}
+	}
+}
