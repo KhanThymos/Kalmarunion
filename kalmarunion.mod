@@ -8,4 +8,4 @@ tags={
 }
 picture="KalmarUnionPicture.png"
 remote_file_id="1192723153"
-supported_version="1.5.3"
+supported_version="1.5.4"
